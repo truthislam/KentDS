@@ -1,11 +1,19 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Menu, X, Phone, ChevronDown, LogOut, LayoutDashboard, ShieldCheck } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+  LogOut,
+  LayoutDashboard,
+  ShieldCheck,
+} from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthModal from "@/components/AuthModal";
 
@@ -36,7 +44,9 @@ export default function NavBar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   // Close user menu on outside click
@@ -52,15 +62,22 @@ export default function NavBar() {
 
   // Check admin claim
   useEffect(() => {
-    if (!user) { setIsAdmin(false); return; }
-    user.getIdTokenResult().then((r) => setIsAdmin(r.claims.admin === true)).catch(() => setIsAdmin(false));
+    if (!user) {
+      setIsAdmin(false);
+      return;
+    }
+    user
+      .getIdTokenResult()
+      .then((r) => setIsAdmin(r.claims.admin === true))
+      .catch(() => setIsAdmin(false));
   }, [user]);
 
-  const displayName = user?.displayName || user?.email?.split("@")[0] || "My Account";
+  const displayName =
+    user?.displayName || user?.email?.split("@")[0] || "My Account";
 
   return (
     <>
-      {/* ── Desktop / Tablet Nav ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Desktop / Tablet Nav Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -74,10 +91,20 @@ export default function NavBar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-3 group" id="nav-logo">
-              <img src="/images/logo1.jpg" alt="DDS" width="40" height="40" className="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform" />
+            <Link
+              href="/"
+              className="flex items-center gap-3 group"
+              id="nav-logo"
+            >
+              <img
+                src="/images/logo_green_hat.jpg"
+                alt="DDS"
+                width="40"
+                height="40"
+                className="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform"
+              />
               <span className="text-white font-extrabold text-lg leading-tight tracking-tight">
-                Discount Driving School
+                Kent Discount Driving School
               </span>
             </Link>
             <a
@@ -125,7 +152,9 @@ export default function NavBar() {
                   <span className="hidden lg:inline max-w-[120px] truncate">
                     {displayName}
                   </span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${userMenuOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform ${userMenuOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
 
                 <AnimatePresence>
@@ -184,7 +213,7 @@ export default function NavBar() {
         </div>
       </motion.nav>
 
-      {/* ── Mobile Full-Screen Menu ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Mobile Full-Screen Menu Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -279,10 +308,10 @@ export default function NavBar() {
       </AnimatePresence>
 
       {/* Auth Modal */}
-      <AuthModal 
-        isOpen={authOpen} 
-        onClose={() => setAuthOpen(false)} 
-        onSuccess={() => router.push("/dashboard")} 
+      <AuthModal
+        isOpen={authOpen}
+        onClose={() => setAuthOpen(false)}
+        onSuccess={() => router.push("/dashboard")}
       />
     </>
   );

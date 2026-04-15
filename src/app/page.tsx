@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -18,22 +18,29 @@ import {
 } from "lucide-react";
 import ServiceTabs from "@/components/ServiceTabs";
 import { db } from "@/lib/firebase";
-import { collection, doc, onSnapshot, query, orderBy } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import Image from "next/image";
 
-/* ═══ CMS Defaults ═══ */
+/* â•â•â• CMS Defaults â•â•â• */
 const DEFAULTS = {
   heroHeading: "Become a Confident Driver in Kent",
   heroHeadingColor: "",
-  heroSubheading: "Your journey to safe, skilled driving starts at our Seattle branch.",
+  heroSubheading:
+    "Your journey to safe, skilled driving starts at our Kent branch.",
   heroSubheadingColor: "",
   ctaPrimary: "Enroll Now",
   ctaSecondary: "View Packages",
 };
 
-/* ══════════════════════════════════════
-   WHY US — Features
-   ══════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   WHY US â€” Features
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const whyUsFeatures = [
   {
     Icon: ShieldCheck,
@@ -60,14 +67,15 @@ const whyUsFeatures = [
     title: "Highly Rated",
     desc: (
       <>
-        Join hundreds of satisfied students who have successfully earned their licenses.{" "}
-        <a 
+        Join hundreds of satisfied students who have successfully earned their
+        licenses.{" "}
+        <a
           href="https://www.google.com/search?sca_esv=ef6db0e9fcb54fe8&sxsrf=ANbL-n64NjnLmcwo_SOAZsp--wIprluEXw:1775485896574&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOeSGx_M4mvMMmSUVMlg6pip7XDLzBqT0O-0oy_Bv1J7glamVXP-F91RymK_xqPw_7Nt4pVKot-dZApywaAiJr9bTeSbZxZ2gAHxEnR3mt8e20TMvtw%3D%3D&q=Discount+Driving+School+Reviews&sa=X&ved=2ahUKEwjF3KyxuNmTAxXQVqQEHTivBAgQ0bkNegQIKRAH&biw=1377&bih=636&dpr=1.39"
-          target="_blank" 
-          rel="noopener noreferrer" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-blue-600 hover:text-blue-700 font-bold hover:underline"
         >
-          Read our Google Reviews →
+          Read our Google Reviews â†’
         </a>
       </>
     ),
@@ -79,9 +87,9 @@ const whyUsFeatures = [
   },
 ];
 
-/* ══════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    REVIEWS
-   ══════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const reviews = [
   {
     initials: "AS",
@@ -100,9 +108,9 @@ const reviews = [
   },
 ];
 
-/* ══════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FAQ
-   ══════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const faqs = [
   {
     q: "What are the requirements to get a driver's license in Washington?",
@@ -145,34 +153,51 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   );
 }
 
-/* ══════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PAGE
-   ══════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 export default function HomePage() {
   const [cms, setCms] = useState(DEFAULTS);
   const [announcements, setAnnouncements] = useState<any[]>([]);
 
   useEffect(() => {
-    const unsubCms = onSnapshot(doc(db, "artifacts/kent/public/data/siteContent/homepage"), (snap) => {
-      if (snap.exists()) {
-        setCms({ ...DEFAULTS, ...snap.data() });
+    const unsubCms = onSnapshot(
+      doc(db, "artifacts/kent/public/data/siteContent/homepage"),
+      (snap) => {
+        if (snap.exists()) {
+          setCms({ ...DEFAULTS, ...snap.data() });
+        }
+      },
+      (error) => {
+        console.warn(
+          "CMS read denied (expected until firestore.rules deployed):",
+          error.message
+        );
       }
-    }, (error) => {
-      console.warn("CMS read denied (expected until firestore.rules deployed):", error.message);
-    });
+    );
 
     const q = query(
-      collection(db, "artifacts/kent/public/data/siteContent/homepage/announcements"),
+      collection(
+        db,
+        "artifacts/kent/public/data/siteContent/homepage/announcements"
+      ),
       orderBy("createdAt", "desc")
     );
-    const unsubAnn = onSnapshot(q, (snap) => {
-      const activeAnns = snap.docs
-        .map(d => ({ id: d.id, ...(d.data() as any) }))
-        .filter((a: any) => a.active !== false); // hide inactive ones
-      setAnnouncements(activeAnns);
-    }, (error) => {
-      console.warn("Announcements read denied (expected until firestore.rules deployed):", error.message);
-    });
+    const unsubAnn = onSnapshot(
+      q,
+      (snap) => {
+        const activeAnns = snap.docs
+          .map((d) => ({ id: d.id, ...(d.data() as any) }))
+          .filter((a: any) => a.active !== false); // hide inactive ones
+        setAnnouncements(activeAnns);
+      },
+      (error) => {
+        console.warn(
+          "Announcements read denied (expected until firestore.rules deployed):",
+          error.message
+        );
+      }
+    );
 
     return () => {
       unsubCms();
@@ -182,9 +207,9 @@ export default function HomePage() {
 
   // Icon mapping for announcements
   const typeIcons: Record<string, string> = {
-    info: "ℹ️",
-    warning: "⚠️",
-    promo: "🎉",
+    info: "â„¹ï¸",
+    warning: "âš ï¸",
+    promo: "ðŸŽ‰",
   };
   const typeColors: Record<string, string> = {
     info: "bg-blue-600",
@@ -194,15 +219,15 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO ── */}
+      {/* â”€â”€ HERO â”€â”€ */}
       <header className="relative h-screen flex items-center justify-center text-white text-center overflow-hidden">
         {/* Background Photo */}
         <div className="absolute inset-0">
-          <Image 
-            src="/images/hero_section_img.webp" 
-            alt="Hero background" 
-            fill 
-            className="object-cover" 
+          <Image
+            src="/images/hero_section_img.webp"
+            alt="Hero background"
+            fill
+            className="object-cover"
             priority
             sizes="100vw"
           />
@@ -229,9 +254,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mt-5 text-lg sm:text-xl md:text-2xl font-light max-w-2xl mx-auto text-shadow"
-            style={{ 
-              color: cms.heroSubheadingColor || "rgba(255,255,255,0.8)", 
-              fontWeight: cms.heroSubheadingColor ? '600' : undefined 
+            style={{
+              color: cms.heroSubheadingColor || "rgba(255,255,255,0.8)",
+              fontWeight: cms.heroSubheadingColor ? "600" : undefined,
             }}
           >
             {cms.heroSubheading}
@@ -260,7 +285,7 @@ export default function HomePage() {
             </a>
           </motion.div>
 
-          {/* ── ANNOUNCEMENTS ── */}
+          {/* â”€â”€ ANNOUNCEMENTS â”€â”€ */}
           {announcements.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -270,12 +295,22 @@ export default function HomePage() {
             >
               <div className="flex flex-col gap-3 max-h-[120px] overflow-hidden">
                 {announcements.map((a) => (
-                  <div 
-                    key={a.id} 
+                  <div
+                    key={a.id}
                     className={`${typeColors[a.type] || typeColors.info}/90 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-2xl text-center shadow-xl flex items-start sm:items-center justify-center gap-3`}
                   >
-                    <span className="text-xl shrink-0 mt-0.5 sm:mt-0">{typeIcons[a.type] || typeIcons.info}</span>
-                    <span className="text-sm line-clamp-2 md:line-clamp-3 text-ellipsis" style={{ color: a.textColor || undefined, fontWeight: a.isBold ? 700 : 500 }}>{a.text}</span>
+                    <span className="text-xl shrink-0 mt-0.5 sm:mt-0">
+                      {typeIcons[a.type] || typeIcons.info}
+                    </span>
+                    <span
+                      className="text-sm line-clamp-2 md:line-clamp-3 text-ellipsis"
+                      style={{
+                        color: a.textColor || undefined,
+                        fontWeight: a.isBold ? 700 : 500,
+                      }}
+                    >
+                      {a.text}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -293,7 +328,7 @@ export default function HomePage() {
         </motion.div>
       </header>
 
-      {/* ── WHY US ── */}
+      {/* â”€â”€ WHY US â”€â”€ */}
       <section id="why-us" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.h2
@@ -323,7 +358,9 @@ export default function HomePage() {
                 <div className="bg-blue-100 text-forest-700 rounded-full p-4 mb-4">
                   <feat.Icon className="w-7 h-7" />
                 </div>
-                <h3 className="font-bold text-lg text-forest-700">{feat.title}</h3>
+                <h3 className="font-bold text-lg text-forest-700">
+                  {feat.title}
+                </h3>
                 <p className="text-stone-600 mt-2 text-sm leading-relaxed">
                   {feat.desc}
                 </p>
@@ -333,7 +370,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ABOUT SNIPPET ── */}
+      {/* â”€â”€ ABOUT SNIPPET â”€â”€ */}
       <section id="about" className="py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
           <motion.div
@@ -347,15 +384,17 @@ export default function HomePage() {
             </h2>
             <div className="space-y-4 text-base text-stone-600 leading-relaxed">
               <p>
-                Welcome to Discount Driving School, your dedicated partner on the
-                road to becoming a safe and confident driver for life. Serving the
-                Kent community, our mission is to provide a supportive, patient,
-                and professional learning environment where every student can thrive.
+                Welcome to Discount Driving School, your dedicated partner on
+                the road to becoming a safe and confident driver for life.
+                Serving the Kent community, our mission is to provide a
+                supportive, patient, and professional learning environment where
+                every student can thrive.
               </p>
               <p>
                 Our success is built on a foundation of expert instruction and a
-                state-approved curriculum. Every one of our certified instructors is
-                passionate about teaching and dedicated to your personal progress.
+                state-approved curriculum. Every one of our certified
+                instructors is passionate about teaching and dedicated to your
+                personal progress.
               </p>
             </div>
           </motion.div>
@@ -381,10 +420,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PACKAGES (Dynamic from Firestore) ── */}
+      {/* â”€â”€ PACKAGES (Dynamic from Firestore) â”€â”€ */}
       <ServiceTabs />
 
-      {/* ── FAQ ── */}
+      {/* â”€â”€ FAQ â”€â”€ */}
       <section id="faq" className="py-16 bg-white border-t border-stone-100">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -404,8 +443,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── REVIEWS ── */}
-      <section id="reviews" className="py-20 bg-stone-50 border-y border-stone-200">
+      {/* â”€â”€ REVIEWS â”€â”€ */}
+      <section
+        id="reviews"
+        className="py-20 bg-stone-50 border-y border-stone-200"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <motion.h2
@@ -482,8 +524,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
-      <section id="contact" className="py-16 bg-stone-50 border-t border-stone-100">
+      {/* â”€â”€ CONTACT â”€â”€ */}
+      <section
+        id="contact"
+        className="py-16 bg-stone-50 border-t border-stone-100"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-1/3">
@@ -508,7 +553,7 @@ export default function HomePage() {
                   {
                     Icon: Phone,
                     label: "Phone Number",
-                    value: "(206) 551-9748",
+                    value: "(206) 851-6647",
                     href: "tel:+12065519748",
                   },
                   {
@@ -520,7 +565,7 @@ export default function HomePage() {
                   {
                     Icon: Clock,
                     label: "Business Hours",
-                    value: "Mon – Sun: 9:00 AM – 8:00 PM",
+                    value: "Mon â€“ Sun: 9:00 AM â€“ 8:00 PM",
                   },
                 ].map(({ Icon, label, value, href }) => (
                   <div key={label} className="flex gap-4 group">

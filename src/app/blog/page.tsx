@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -227,7 +227,7 @@ export default function BlogPage() {
                 className="text-2xl md:text-3xl font-extrabold text-blue-600 hover:text-blue-700 transition-all flex items-center gap-3 justify-center"
               >
                 <Phone className="w-6 h-6" />
-                (206) 551-9748
+                (206) 851-6647
               </a>
             </div>
           </section>
@@ -257,7 +257,7 @@ export default function BlogPage() {
                   href="tel:2068516647"
                   className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-2 border-white/20 font-extrabold px-10 py-4 rounded-2xl shadow-xl hover:bg-white/20 transition-all active:scale-95 text-lg"
                 >
-                  (206) 551-9748
+                  (206) 851-6647
                 </a>
               </div>
             </div>

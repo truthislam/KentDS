@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -7,14 +7,34 @@ import PageHero from "@/components/PageHero";
 import { getFunctions, httpsCallable } from "firebase/functions";
 
 const contactInfo = [
-  { Icon: MapPin, label: "Office Location", value: "8816 Renton Ave S,\nKent, WA 98118" },
-  { Icon: Phone, label: "Phone Number", value: "(206) 551-9748", href: "tel:+12065519748" },
-  { Icon: Mail, label: "Email Support", value: "kentdiscountdriving@gmail.com", href: "mailto:kentdiscountdriving@gmail.com" },
-  { Icon: Clock, label: "Business Hours", value: "Mon – Sun: 9:00 AM – 8:00 PM" },
+  {
+    Icon: MapPin,
+    label: "Office Location",
+    value: "8816 Renton Ave S,\nKent, WA 98118",
+  },
+  {
+    Icon: Phone,
+    label: "Phone Number",
+    value: "(206) 851-6647",
+    href: "tel:+12068516647",
+  },
+  {
+    Icon: Mail,
+    label: "Email Support",
+    value: "kentdiscountdriving@gmail.com",
+    href: "mailto:kentdiscountdriving@gmail.com",
+  },
+  {
+    Icon: Clock,
+    label: "Business Hours",
+    value: "Mon â€“ Sun: 9:00 AM â€“ 8:00 PM",
+  },
 ];
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,18 +43,24 @@ export default function ContactPage() {
     const form = e.target as HTMLFormElement;
     const data = {
       name: (form.elements.namedItem("contact-name") as HTMLInputElement).value,
-      organization: (form.elements.namedItem("contact-org") as HTMLInputElement).value,
-      email: (form.elements.namedItem("contact-email") as HTMLInputElement).value,
-      phone: (form.elements.namedItem("contact-phone") as HTMLInputElement).value,
-      subject: (form.elements.namedItem("contact-subject") as HTMLInputElement).value,
-      message: (form.elements.namedItem("contact-message") as HTMLTextAreaElement).value,
+      organization: (form.elements.namedItem("contact-org") as HTMLInputElement)
+        .value,
+      email: (form.elements.namedItem("contact-email") as HTMLInputElement)
+        .value,
+      phone: (form.elements.namedItem("contact-phone") as HTMLInputElement)
+        .value,
+      subject: (form.elements.namedItem("contact-subject") as HTMLInputElement)
+        .value,
+      message: (
+        form.elements.namedItem("contact-message") as HTMLTextAreaElement
+      ).value,
     };
 
     try {
       const functions = getFunctions();
       const submitFn = httpsCallable(functions, "submitContactForm");
       await submitFn(data);
-      
+
       setStatus("success");
       form.reset();
       setTimeout(() => setStatus("idle"), 5000);
@@ -127,7 +153,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-xs font-bold text-forest-700 tracking-tight">
-                      Open Now • Walk-ins Welcome
+                      Open Now â€¢ Walk-ins Welcome
                     </span>
                   </div>
                 </div>
@@ -157,7 +183,10 @@ export default function ContactPage() {
           <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="contact-name" className="block text-sm font-bold text-forest-700 mb-2">
+                <label
+                  htmlFor="contact-name"
+                  className="block text-sm font-bold text-forest-700 mb-2"
+                >
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -169,7 +198,10 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="contact-org" className="block text-sm font-bold text-forest-700 mb-2">
+                <label
+                  htmlFor="contact-org"
+                  className="block text-sm font-bold text-forest-700 mb-2"
+                >
                   Organization
                 </label>
                 <input
@@ -180,7 +212,10 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="block text-sm font-bold text-forest-700 mb-2">
+                <label
+                  htmlFor="contact-email"
+                  className="block text-sm font-bold text-forest-700 mb-2"
+                >
                   Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -192,7 +227,10 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="contact-phone" className="block text-sm font-bold text-forest-700 mb-2">
+                <label
+                  htmlFor="contact-phone"
+                  className="block text-sm font-bold text-forest-700 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -205,7 +243,10 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="contact-subject" className="block text-sm font-bold text-forest-700 mb-2">
+              <label
+                htmlFor="contact-subject"
+                className="block text-sm font-bold text-forest-700 mb-2"
+              >
                 Subject <span className="text-red-500">*</span>
               </label>
               <input
@@ -218,7 +259,10 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="contact-message" className="block text-sm font-bold text-forest-700 mb-2">
+              <label
+                htmlFor="contact-message"
+                className="block text-sm font-bold text-forest-700 mb-2"
+              >
                 Message <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -239,9 +283,13 @@ export default function ContactPage() {
                 id="contact-submit-btn"
               >
                 {status === "sending" ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</>
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" /> Sending...
+                  </>
                 ) : (
-                  <><Send className="w-5 h-5" /> Send Message</>
+                  <>
+                    <Send className="w-5 h-5" /> Send Message
+                  </>
                 )}
               </motion.button>
             </div>
@@ -252,7 +300,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center text-green-600 font-bold text-base"
               >
-                ✓ Message sent successfully! We&apos;ll get back to you soon.
+                âœ“ Message sent successfully! We&apos;ll get back to you soon.
               </motion.p>
             )}
             {status === "error" && (
@@ -261,7 +309,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center text-red-600 font-bold text-base"
               >
-                ✗ Something went wrong. Please try again or call us directly.
+                âœ— Something went wrong. Please try again or call us directly.
               </motion.p>
             )}
           </form>
@@ -271,7 +319,7 @@ export default function ContactPage() {
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+12065519748"
+          href="tel:+12068516647"
           className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all active:scale-95"
           title="Call Us"
         >
