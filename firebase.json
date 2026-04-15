@@ -1,0 +1,30 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "source": ".",
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
+    "rewrites": [
+      {
+        "source": "/public/pages/payment-return.html",
+        "destination": "/payment-return"
+      },
+      {
+        "source": "/public/pages/services.html",
+        "destination": "/dashboard"
+      }
+    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "functions/**"]
+  },
+  "functions": [
+    {
+      "runtime": "nodejs22",
+      "source": "functions",
+      "codebase": "default"
+    }
+  ]
+}

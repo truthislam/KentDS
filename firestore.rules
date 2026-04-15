@@ -1,0 +1,115 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Helper Functions ---
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.admin == true || 
+        request.auth.token.email == 'info@discountdrivingschool.net' || 
+        request.auth.token.email == 'discountdriving@gmail.com' || 
+        request.auth.token.email == 'kentdiscountdrivingschool@gmail.com'
+      );
+    }
+
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function isSafePaymentStatus() {
+      let settingCompleted = ('paymentStatus' in request.resource.data && request.resource.data.paymentStatus == 'completed');
+      let settingPendingVerification = ('paymentStatus' in request.resource.data && request.resource.data.paymentStatus == 'pending_verification');
+      let settingInReview = ('paymentStatus' in request.resource.data && request.resource.data.paymentStatus == 'inReview');
+      let settingNestedCompleted = ('enrolledPackage' in request.resource.data &&
+                                    'paymentStatus' in request.resource.data.enrolledPackage &&
+                                    request.resource.data.enrolledPackage.paymentStatus == 'completed');
+      return !settingCompleted && !settingPendingVerification && !settingInReview && !settingNestedCompleted;
+    }
+
+    // --- STUDENTS ---
+    match /artifacts/{appId}/public/data/students/{userId} {
+      allow create: if isOwner(userId) && isSafePaymentStatus();
+      allow read: if isOwner(userId);
+      allow update: if isOwner(userId) && isSafePaymentStatus();
+      allow write, delete: if isAdmin();
+    }
+
+    // --- PACKAGES (public read, admin write) ---
+    match /artifacts/{appId}/public/data/packages/{group}/list/{packageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- INSTRUCTORS ---
+    match /artifacts/{appId}/public/data/instructors/{instructorId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // --- AVAILABILITY ---
+    match /artifacts/{appId}/public/data/availability/{slotId} {
+      allow read: if true;
+      allow create, delete: if isAdmin();
+      allow update: if request.auth != null;
+    }
+
+    // --- APPOINTMENTS ---
+    match /artifacts/{appId}/public/data/appointments/{appointmentId} {
+      allow create: if request.auth != null && (
+        get(/databases/$(database)/documents/artifacts/$(appId)/public/data/students/$(request.auth.uid))
+          .data.enrolledPackage.paymentStatus == 'completed'
+        || get(/databases/$(database)/documents/artifacts/$(appId)/public/data/students/$(request.auth.uid))
+          .data.enrolledPackage.isTest == true
+      );
+      allow read, update, delete: if isOwner(resource.data.userId);
+      allow read, write: if isAdmin();
+    }
+
+    // --- TEEN SESSIONS ---
+    match /artifacts/{appId}/public/data/teen_sessions/{sessionId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // --- PENDING TEST NOTIFICATIONS ---
+    match /artifacts/{appId}/public/data/pendingTestNotifications/{notifId} {
+      allow read, write: if isAdmin();
+    }
+
+    // --- ADMINS COLLECTION ---
+    match /artifacts/{appId}/public/data/admins/{adminId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // --- MAIL ---
+    match /artifacts/{appId}/public/data/mail/{mailId} {
+      allow read, write: if false;
+    }
+
+    // --- SITE CONTENT: top-level docs (homepage, programsHeader, etc.) ---
+    match /artifacts/{appId}/public/data/siteContent/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- SITE CONTENT: announcements subcollection ---
+    match /artifacts/{appId}/public/data/siteContent/{docId}/announcements/{announcementId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- SITE CONTENT: discounts subcollection ---
+    match /artifacts/{appId}/public/data/siteContent/{docId}/discounts/{discountId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- CONTACT FORM SUBMISSIONS ---
+    match /artifacts/{appId}/public/data/siteContent/contactSubmissions/messages/{messageId} {
+      allow create: if true;
+      allow read, delete: if isAdmin();
+    }
+  }
+}
