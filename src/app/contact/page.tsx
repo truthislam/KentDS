@@ -61,7 +61,7 @@ export default function ContactPage() {
                 Our Location
               </span>
               <h2 className="text-3xl font-bold text-forest-700 mb-4">
-                Our Seattle Branch
+                Our Kent Branch
               </h2>
               <p className="text-stone-600 text-sm leading-relaxed mb-8">
                 Visit us at our primary location for official DOL testing and
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
               <div className="mt-8">
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=8816+Renton+Ave+S+Seattle+WA+98118"
+                  href="https://www.google.com/maps/dir/?api=1&destination=23231+Pacific+Hwy+S+Kent+WA+98032"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full bg-forest-700 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-forest-800 transition-all text-sm gap-2"
@@ -113,7 +113,7 @@ export default function ContactPage() {
             <div className="lg:w-2/3">
               <div className="rounded-2xl overflow-hidden shadow-xl border border-stone-200 h-80 lg:h-full min-h-[320px] relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.739433159503!2d-122.27706332367728!3d47.5357879711828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549041e23351c555%3A0x8232a223f85ed2a8!2s8816%20Renton%20Ave%20S%2C%20Seattle%2C%20WA%2098118!5e0!3m2!1sen!2sus!4v1727325039050!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.757041530669!2d-122.30232238437021!3d47.39707257917088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905ea5d09f7a41%3A0xfa9ab3fa132d7ab!2s23231%20Pacific%20Hwy%20S%2C%20Kent%2C%20WA%2098032!5e0!3m2!1sen!2sus!4v1689625372951!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
