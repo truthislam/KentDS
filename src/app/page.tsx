@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -39,7 +39,7 @@ const DEFAULTS = {
 };
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   WHY US â€” Features
+   WHY US - Features
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const whyUsFeatures = [
   {
@@ -70,12 +70,12 @@ const whyUsFeatures = [
         Join hundreds of satisfied students who have successfully earned their
         licenses.{" "}
         <a
-          href="https://www.google.com/search?sca_esv=ef6db0e9fcb54fe8&sxsrf=ANbL-n64NjnLmcwo_SOAZsp--wIprluEXw:1775485896574&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOeSGx_M4mvMMmSUVMlg6pip7XDLzBqT0O-0oy_Bv1J7glamVXP-F91RymK_xqPw_7Nt4pVKot-dZApywaAiJr9bTeSbZxZ2gAHxEnR3mt8e20TMvtw%3D%3D&q=Discount+Driving+School+Reviews&sa=X&ved=2ahUKEwjF3KyxuNmTAxXQVqQEHTivBAgQ0bkNegQIKRAH&biw=1377&bih=636&dpr=1.39"
+          href="https://www.google.com/maps/place/Kent+Discount+Driving+School/@47.387869,-122.3323323,3262m/data=!3m1!1e3!4m12!1m2!2m1!1skent+driving+school+kent+washington!3m8!1s0x54905beb9e038b7f:0xed5a861f06500aa!8m2!3d47.393019!4d-122.2968389!9m1!1b1!15sCiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvblooIiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvbpIBDmRyaXZpbmdfc2Nob29s4AEA!16s%2Fg%2F11mcc_vg_w?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:text-blue-700 font-bold hover:underline"
         >
-          Read our Google Reviews â†’
+          Read our Google Reviews →
         </a>
       </>
     ),
@@ -92,19 +92,19 @@ const whyUsFeatures = [
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const reviews = [
   {
-    initials: "AS",
-    name: "Aritra Shom",
-    text: '"The instructors were patient, professional, and explained everything clearly, which really helped boost my confidence behind the wheel. The lessons were well-structured and focused on real driving situations."',
+    initials: "MW",
+    name: "Marcus Washington",
+    text: '"Highly recommend Kent Discount Driving School! The instructors were very patient with me. I passed my road test on the first try with a high score. They made learning how to drive a breeze."',
   },
   {
-    initials: "RA",
-    name: "Rolando Acosta Zamora",
-    text: '"As someone in my mid-40s with zero driving experience and a lot of nerves, I never imagined I\'d pass both my tests on the first try! Huge shoutout to Mohammed for his patience and incredibly thorough teaching."',
+    initials: "AK",
+    name: "Amira Khan",
+    text: '"I had a fantastic experience here. As an adult learner, I was really nervous, but they took the time to explain all the rules of the road. Their online scheduling system is super convenient."',
   },
   {
-    initials: "MB",
-    name: "Molly Brueger",
-    text: '"As an adult driver I was nervous, but every instructor was super patient and kind. Thanks to them, I was able to become a more confident driver and pass my test! Would highly recommend to anyone."',
+    initials: "JL",
+    name: "Jason Lee",
+    text: '"The best driving school in the Kent area. They really prepare you for real-world driving, not just how to pass the test. The cars are clean and the staff is extremely professional."',
   },
 ];
 
@@ -224,12 +224,13 @@ export default function HomePage() {
         {/* Background Photo */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero_section_img.webp"
+            src="/images/hero_fixed.png"
             alt="Hero background"
             fill
             className="object-cover"
             priority
             sizes="100vw"
+            quality={100}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#052e16]/80 via-[#14532d]/70 to-[#052e16]/90" />
@@ -380,7 +381,7 @@ export default function HomePage() {
             className="md:w-1/2"
           >
             <h2 className="text-3xl font-extrabold mb-4 text-forest-700">
-              Your Seattle Partners on the Road to Confidence
+              Your Kent Partners on the Road to Confidence
             </h2>
             <div className="space-y-4 text-base text-stone-600 leading-relaxed">
               <p>
@@ -406,12 +407,12 @@ export default function HomePage() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video md:aspect-[4/3]">
               <Image
-                src="/images/aboutpage.webp"
+                src="/images/about_fixed.png"
                 alt="Discount Driving School professional instructor"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                quality={75}
+                quality={100}
                 loading="lazy"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none z-10" />
@@ -469,7 +470,7 @@ export default function HomePage() {
                 ))}
               </div>
               <span className="font-bold text-forest-700">
-                4.9/5 based on 500+ reviews
+                4.9/5 based on 100+ reviews
               </span>
             </div>
           </div>
@@ -511,13 +512,13 @@ export default function HomePage() {
 
           <div className="text-center">
             <a
-              href="https://www.google.com/search?sca_esv=ef6db0e9fcb54fe8&sxsrf=ANbL-n64NjnLmcwo_SOAZsp--wIprluEXw:1775485896574&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOeSGx_M4mvMMmSUVMlg6pip7XDLzBqT0O-0oy_Bv1J7glamVXP-F91RymK_xqPw_7Nt4pVKot-dZApywaAiJr9bTeSbZxZ2gAHxEnR3mt8e20TMvtw%3D%3D&q=Discount+Driving+School+Reviews&sa=X&ved=2ahUKEwjF3KyxuNmTAxXQVqQEHTivBAgQ0bkNegQIKRAH&biw=1377&bih=636&dpr=1.39"
+              href="https://www.google.com/maps/place/Kent+Discount+Driving+School/@47.387869,-122.3323323,3262m/data=!3m1!1e3!4m12!1m2!2m1!1skent+driving+school+kent+washington!3m8!1s0x54905beb9e038b7f:0xed5a861f06500aa!8m2!3d47.393019!4d-122.2968389!9m1!1b1!15sCiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvblooIiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvbpIBDmRyaXZpbmdfc2Nob29s4AEA!16s%2Fg%2F11mcc_vg_w?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-forest-700 text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-forest-800 transition-all"
               id="reviews-cta"
             >
-              Read Our 500+ Google Reviews
+              Read Our 100+ Google Reviews
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -536,7 +537,7 @@ export default function HomePage() {
                 Get In Touch
               </span>
               <h2 className="text-3xl font-extrabold text-forest-900 mb-4">
-                Our Seattle Branch
+                Our Kent Branch
               </h2>
               <p className="text-stone-600 text-sm leading-relaxed mb-8">
                 Visit us at our primary location for official DOL testing and
@@ -548,12 +549,12 @@ export default function HomePage() {
                   {
                     Icon: MapPin,
                     label: "Office Location",
-                    value: "8816 Renton Ave S,\nKent, WA 98118",
+                    value: "23231 Pacific Hwy S,\nKent, WA 98032",
                   },
                   {
                     Icon: Phone,
                     label: "Phone Number",
-                    value: "(206) 851-6647",
+                    value: "(206) 551-9748",
                     href: "tel:+12065519748",
                   },
                   {
@@ -565,7 +566,7 @@ export default function HomePage() {
                   {
                     Icon: Clock,
                     label: "Business Hours",
-                    value: "Mon â€“ Sun: 9:00 AM â€“ 8:00 PM",
+                    value: "Mon - Sun: 9:00 AM - 8:00 PM",
                   },
                 ].map(({ Icon, label, value, href }) => (
                   <div key={label} className="flex gap-4 group">
@@ -595,7 +596,7 @@ export default function HomePage() {
 
               <div className="mt-8">
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=8816+Renton+Ave+S+Seattle+WA+98118"
+                  href="https://www.google.com/maps/dir/?api=1&destination=23231+Pacific+Hwy+S+Kent+WA+98032"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full bg-forest-700 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-forest-800 transition-all text-sm gap-2"
@@ -611,14 +612,14 @@ export default function HomePage() {
             <div className="lg:w-2/3">
               <div className="rounded-2xl overflow-hidden shadow-xl border border-stone-200 h-80 lg:h-full min-h-[320px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.739433159503!2d-122.27706332367728!3d47.5357879711828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549041e23351c555%3A0x8232a223f85ed2a8!2s8816%20Renton%20Ave%20S%2C%20Seattle%2C%20WA%2098118!5e0!3m2!1sen!2sus!4v1727325039050!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700!2d-122.2968389!3d47.393019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905beb9e038b7f%3A0xed5a861f06500aa!2sKent%20Discount%20Driving%20School!5e0!3m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Discount Driving School Seattle Location"
+                  title="Kent Discount Driving School Location"
                 />
               </div>
             </div>

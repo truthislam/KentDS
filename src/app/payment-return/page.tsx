@@ -85,8 +85,8 @@ function PaymentReturnContent() {
       <div className="max-w-md w-full bg-white rounded-2xl p-8 shadow-xl text-center">
         {status === "processing" && (
           <div id="processing-view" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <Loader2 className="w-16 h-16 animate-spin text-amber-500 mx-auto mb-6" />
-            <h1 className="text-2xl font-extrabold text-navy-900 mb-2">Processing Your Payment...</h1>
+            <Loader2 className="w-16 h-16 animate-spin text-gold-500 mx-auto mb-6" />
+            <h1 className="text-2xl font-extrabold text-forest-900 mb-2">Processing Your Payment...</h1>
             <p className="text-stone-500 mb-6">Please wait while we confirm your enrollment.</p>
           </div>
         )}
@@ -94,12 +94,12 @@ function PaymentReturnContent() {
         {status === "success" && (
           <div id="success-view" className="animate-in zoom-in duration-500">
             <CheckCircle2 className="w-20 h-20 text-emerald-500 mx-auto mb-6" />
-            <h1 className="text-2xl font-extrabold text-navy-900 mb-2">Payment Successful!</h1>
+            <h1 className="text-2xl font-extrabold text-forest-900 mb-2">Payment Successful!</h1>
             <p className="text-stone-600 mb-4 font-medium">Welcome to Discount Driving School!</p>
             <p className="text-sm text-stone-500 mb-8">You can now access your dashboard and schedule appointments.</p>
             <button
               onClick={() => router.push("/dashboard")}
-              className="inline-block bg-navy-700 text-white px-8 py-3.5 rounded-xl font-bold shadow-lg hover:bg-navy-600 transition-all"
+              className="inline-block bg-forest-700 text-white px-8 py-3.5 rounded-xl font-bold shadow-lg hover:bg-forest-600 transition-all"
             >
               Go to Dashboard
             </button>
@@ -116,12 +116,12 @@ function PaymentReturnContent() {
               to help complete your enrollment.
             </p>
             <div className="bg-stone-50 p-5 rounded-xl mb-8 text-left border border-stone-100">
-              <p className="font-bold text-navy-900 mb-2">Need immediate help?</p>
+              <p className="font-bold text-forest-900 mb-2">Need immediate help?</p>
               <p className="text-sm text-stone-700 mb-1">
-                📞 Call: <a href="tel:(206)851-6647" className="text-blue-600 font-medium">(206) 851-6647</a>
+                📞 Call: <a href="tel:(206)851-6647" className="text-blue-600 font-medium">(206) 551-9748</a>
               </p>
               <p className="text-sm text-stone-700">
-                ✉️ Email: <a href="mailto:info@discountdrivingschool.net" className="text-blue-600 font-medium">info@discountdrivingschool.net</a>
+                ✉️ Email: <a href="mailto:kentdiscountdriving@gmail.com" className="text-blue-600 font-medium">kentdiscountdriving@gmail.com</a>
               </p>
             </div>
             <button
@@ -141,7 +141,7 @@ export default function PaymentReturnPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center p-4 bg-stone-50">
-         <Loader2 className="w-10 h-10 animate-spin text-amber-500" />
+         <Loader2 className="w-10 h-10 animate-spin text-gold-500" />
       </div>
     }>
       <PaymentReturnContent />

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const blogPosts: Array<{
     tagColor: "bg-blue-100 text-blue-800",
     readTime: "5 Min Read",
     date: "Jan 4, 2026",
-    image: "/images/driving test img.webp",
+    image: "/images/kent_blog_1_1776514341083.png",
     title:
       "Top 5 Reasons Students Fail the Kent DOL Road Test (And How to Avoid Them)",
     intro:
@@ -69,7 +69,7 @@ const blogPosts: Array<{
     tagColor: "bg-gold-100 text-gold-800",
     readTime: "4 Min Read",
     date: "Jan 4, 2026",
-    image: "/images/blog-teen-img.webp",
+    image: "/images/kent_blog_2_1776514358210.png",
     title: "A Parent's Guide to Seattle Teen Driving Laws in 2026",
     intro:
       "Navigating the transition from passenger to driver is a major milestone for any Seattle family. With Washington State's specific traffic laws and the unique challenges of driving in the Pacific Northwest, staying informed is the first step toward safety.",
@@ -119,15 +119,17 @@ export default function BlogPage() {
               className="bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100"
             >
               {/* Post Image */}
+              {post.image && (
               <div className="relative h-64 md:h-80 overflow-hidden">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover"
+                  className={`object-cover ${pi === 0 ? "object-[center_30%]" : "object-top"}`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
+              )}
 
               <div className="p-8 md:p-12">
                 {/* Meta */}
@@ -220,14 +222,14 @@ export default function BlogPage() {
             </div>
             <div className="mt-10 pt-8 border-t border-blue-100 w-full max-w-lg">
               <p className="text-stone-600 font-semibold mb-2">
-                Call our Seattle Office:
+                Call our Kent Office:
               </p>
               <a
-                href="tel:2068516647"
+                href="tel:+12065519748"
                 className="text-2xl md:text-3xl font-extrabold text-blue-600 hover:text-blue-700 transition-all flex items-center gap-3 justify-center"
               >
                 <Phone className="w-6 h-6" />
-                (206) 851-6647
+                (206) 551-9748
               </a>
             </div>
           </section>
@@ -254,10 +256,10 @@ export default function BlogPage() {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <a
-                  href="tel:2068516647"
+                  href="tel:+12065519748"
                   className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-2 border-white/20 font-extrabold px-10 py-4 rounded-2xl shadow-xl hover:bg-white/20 transition-all active:scale-95 text-lg"
                 >
-                  (206) 851-6647
+                  (206) 551-9748
                 </a>
               </div>
             </div>

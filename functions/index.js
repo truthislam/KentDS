@@ -17,6 +17,8 @@ import {
   getTestBookingConfirmedTemplate,
   getTestBookingPaidAdminTemplate,
   getPasswordResetTemplate,
+  getPaymentReceivedAdminTemplate,
+  getPaymentReceivedStudentTemplate,
 } from "./email-templates.js";
 
 // --- Init ---
@@ -226,29 +228,28 @@ async function sendRegistrationEmails(studentId, data) {
   // enrolledPackage must exist and have a name
   if (!firstName || !lastName || !email || !enrolledPackage?.name) {
     console.log(
-      `â³ Registration data for ${studentId} still incomplete. Waiting...`
+      `⏳ Registration data for ${studentId} still incomplete. Waiting...`
     );
     return;
   }
 
-  // SUPPRESS: If this is a test registration, skip these generic emails.
-  // The specific test confirmation is handled by bookAppointment().
   const pkgName = (
     enrolledPackage.name ||
     enrolledPackage.packageName ||
     ""
   ).toLowerCase();
 
-  // Robust check: Flag is set by frontend, fallback to string matching
+  // Precise check: Only suppress for actual test bookings, not lesson packages
+  // that happen to contain "driving" in their name (e.g. "First-Time-Driver")
   const isTest =
     enrolledPackage.isTest === true ||
-    pkgName.includes("test") ||
-    pkgName.includes("knowledge") ||
-    pkgName.includes("driving");
+    pkgName.includes("knowledge test") ||
+    pkgName.includes("driving test") ||
+    pkgName.includes("knowledge + driving");
 
   if (isTest) {
     console.log(
-      `â„¹ï¸ Suppressing generic registration email for Test: ${pkgName}`
+      `ℹ️ Suppressing generic registration email for Test: ${pkgName}`
     );
     return;
   }
@@ -1145,6 +1146,8 @@ export const handlePaymentSuccess = onCall(async (request) => {
       studentData.firstName ||
       splitName(userRecord.displayName).firstName ||
       "Student";
+    const lastName =
+      studentData.lastName || splitName(userRecord.displayName).lastName || "";
 
     // 2. Enroll student in package (pending_verification — admin must confirm in Clover)
     await studentRef.set(
@@ -1156,15 +1159,60 @@ export const handlePaymentSuccess = onCall(async (request) => {
           enrolledAt: admin.firestore.FieldValue.serverTimestamp(),
         },
         paymentStatus: "pending_verification",
+        paymentReceivedAt: admin.firestore.FieldValue.serverTimestamp(),
       },
       { merge: true }
     );
 
     console.log(`✅ Student ${uid} enrolled in ${packageName}`);
 
-    // NOTE: Registration emails are now sent pre-payment
-    // by the onStudentProfileCreated trigger.
-    // No additional email is sent here as per user request.
+    // 3. Send payment confirmation emails (admin + student)
+    const studentInfo = {
+      firstName: firstName,
+      lastName: lastName,
+      email: studentData.email || userRecord.email || "N/A",
+      phoneNumber: studentData.phoneNumber || "",
+    };
+    const packageInfo = {
+      packageName: packageName || "Unknown Package",
+      packagePrice: packagePrice || 0,
+    };
+
+    // Use deterministic IDs to prevent duplicate emails if function retries
+    const adminMailId = `payment_admin_${uid}_${packageId}`;
+    const studentMailId = `payment_student_${uid}_${packageId}`;
+
+    // Admin notification: "Payment Received — Verify in Clover"
+    const adminHtml = getPaymentReceivedAdminTemplate(studentInfo, packageInfo);
+    await sendEmail(
+      "kentdiscountdriving@gmail.com",
+      `💰 Payment Received: ${firstName} ${lastName} — ${packageName || "Package"}`,
+      `Payment received from ${firstName} ${lastName} (${studentInfo.email}) for ${packageName}. Please verify in Clover and mark as paid in the admin dashboard.`,
+      adminHtml,
+      "discountdriving@gmail.com",
+      adminMailId
+    );
+
+    // Student confirmation: "Payment Received ✅"
+    const studentEmail = studentData.email || userRecord.email;
+    if (studentEmail) {
+      const studentHtml = getPaymentReceivedStudentTemplate(
+        studentInfo,
+        packageInfo
+      );
+      await sendEmail(
+        studentEmail,
+        `Payment Received — ${packageName || "Discount Driving School"}`,
+        `Dear ${firstName}, thank you for your payment for ${packageName} at Discount Driving School. Our team will verify and finalize your enrollment shortly.`,
+        studentHtml,
+        null,
+        studentMailId
+      );
+    }
+
+    console.log(
+      `📧 Payment notification emails sent for ${firstName} ${lastName} (${studentInfo.email})`
+    );
 
     return {
       success: true,
@@ -1211,14 +1259,13 @@ export const handlePaymentFailure = onCall(async (request) => {
 
     await sendEmail(
       "kentdiscountdriving@gmail.com",
-      `âš ï¸ Payment Failed: ${studentData.firstName || firstName} ${studentData.lastName || lastName}`,
+      `⚠️ Payment Failed: ${studentData.firstName || firstName} ${studentData.lastName || lastName}`,
       `Payment failed for ${packageName}. Student: ${userRecord.email}`,
-      notificationHtml
+      notificationHtml,
+      "discountdriving@gmail.com"
     );
 
-    console.log(
-      `ðŸ“§ Payment failure notification sent for ${userRecord.email}`
-    );
+    console.log(`📧 Payment failure notification sent for ${userRecord.email}`);
 
     // 3. Mark payment as failed in student profile (optional tracking)
     await studentRef.set(
@@ -1468,7 +1515,8 @@ export const reportPaymentStatus = onCall(async (request) => {
       "kentdiscountdriving@gmail.com",
       `Payment Self-Report: ${firstName} ${lastName} - ${packageName}`,
       `${firstName} ${lastName} reports they have paid for ${packageName} via Clover, but the redirect failed. Please verify in Clover.`,
-      adminHtml
+      adminHtml,
+      "discountdriving@gmail.com"
     );
 
     console.log(

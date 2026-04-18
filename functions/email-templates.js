@@ -1,7 +1,7 @@
 /**
  * Professional Email Templates for Discount Driving School
  * Uses Firebase Trigger Email Extension with SMTP2GO
- * 
+ *
  * Features:
  * - Professional HTML styling with responsive design
  * - 5-star rating banner
@@ -11,19 +11,19 @@
  */
 
 // Base URL - Update with your production domain
-const BASE_URL = process.env.BASE_URL || 'https://kentdiscountdrivingschool.com';
+const BASE_URL = process.env.BASE_URL || "https://kentdiscountdrivingschool.com";
 
 // Contact Information
-const SCHOOL_NAME = 'Discount Driving School - Kent';
-const SCHOOL_PHONE = '(206) 551-9748';
-const SCHOOL_EMAIL = 'kentdiscountdriving@gmail.com';
-const SCHOOL_ADDRESS = '23231 Pacific Hwy S, Kent, WA 98032';
+const SCHOOL_NAME = "Discount Driving School - Kent";
+const SCHOOL_PHONE = "(206) 551-9748";
+const SCHOOL_EMAIL = "kentdiscountdriving@gmail.com";
+const SCHOOL_ADDRESS = "23231 Pacific Hwy S, Kent, WA 98032";
 
 /**
  * Base HTML Email Template
  * Provides consistent styling and structure for all emails
  */
-function getBaseTemplate(content, preheader = '') {
+function getBaseTemplate(content, preheader = "") {
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ function getBaseTemplate(content, preheader = '') {
   </style>
 </head>
 <body>
-  ${preheader ? `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">${preheader}</div>` : ''}
+  ${preheader ? `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">${preheader}</div>` : ""}
   <div class="container">
     ${content}
     <div class="footer">
@@ -106,7 +106,8 @@ export function getWelcomeEmailTemplate(studentName, dashboardUrl, loginUrl) {
     </div>
   `;
 
-  const preheader = 'Welcome to Discount Driving School! Your account is ready.';
+  const preheader =
+    "Welcome to Discount Driving School! Your account is ready.";
 
   return getBaseTemplate(content, preheader);
 }
@@ -114,7 +115,11 @@ export function getWelcomeEmailTemplate(studentName, dashboardUrl, loginUrl) {
 /**
  * Appointment Confirmation Template
  */
-export function getAppointmentConfirmationTemplate(studentName, appointmentDetails, dashboardUrl) {
+export function getAppointmentConfirmationTemplate(
+  studentName,
+  appointmentDetails,
+  dashboardUrl
+) {
   const { date, time, sessionType, instructorName } = appointmentDetails;
 
   const content = `
@@ -183,7 +188,11 @@ export function getAppointmentConfirmationTemplate(studentName, appointmentDetai
 /**
  * Appointment Cancellation Template
  */
-export function getAppointmentCancellationTemplate(studentName, appointmentDetails, dashboardUrl) {
+export function getAppointmentCancellationTemplate(
+  studentName,
+  appointmentDetails,
+  dashboardUrl
+) {
   const { date, time, sessionType } = appointmentDetails;
 
   const content = `
@@ -241,12 +250,16 @@ export function getAppointmentCancellationTemplate(studentName, appointmentDetai
  * Admin Notification Template
  * For new bookings, student registrations, etc.
  */
-export function getAdminNotificationTemplate(studentName, studentEmail, appointmentDetails) {
+export function getAdminNotificationTemplate(
+  studentName,
+  studentEmail,
+  appointmentDetails
+) {
   const { date, time, sessionType, bookingType } = appointmentDetails;
 
   const content = `
   < div class="section" >
-      <h2 style="color: #1e40af; margin: 0 0 12px;">📅 ${bookingType || 'New Booking'}</h2>
+      <h2 style="color: #1e40af; margin: 0 0 12px;">📅 ${bookingType || "New Booking"}</h2>
       <p style="font-size: 14px; color: #57534e; margin: 0;">Admin Notification</p>
     </div >
     
@@ -323,7 +336,7 @@ export function getPasswordResetTemplate(firstName, resetUrl) {
     <p>If you have any concerns about your account security, please contact us immediately.</p>
 `;
 
-  const preheader = 'Reset your Discount Driving School password';
+  const preheader = "Reset your Discount Driving School password";
 
   return getBaseTemplate(content, preheader);
 }
@@ -336,13 +349,15 @@ export function getNewStudentNotificationTemplate(studentData, packageData) {
   const { firstName, lastName, email, phoneNumber } = studentData;
   const { packageName, packagePrice, sessionType, teenSession } = packageData;
 
-  const teenSessionHtml = teenSession ? `
+  const teenSessionHtml = teenSession
+    ? `
       <h3 style="margin-top: 24px;">Selected Course Session</h3>
       <div class="details-box" style="background-color: #eef2ff; border-left: 4px solid #4f46e5;">
-        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value"><strong>${teenSession.type || 'N/A'}</strong></div></div>
-        <div class="detail-row"><div class="detail-label">Dates:</div><div class="detail-value">${teenSession.startDate || ''} to ${teenSession.endDate || ''}</div></div>
-        <div class="detail-row"><div class="detail-label">Schedule:</div><div class="detail-value">${teenSession.scheduleDisplay || 'N/A'}</div></div>
-      </div>` : '';
+        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value"><strong>${teenSession.type || "N/A"}</strong></div></div>
+        <div class="detail-row"><div class="detail-label">Dates:</div><div class="detail-value">${teenSession.startDate || ""} to ${teenSession.endDate || ""}</div></div>
+        <div class="detail-row"><div class="detail-label">Schedule:</div><div class="detail-value">${teenSession.scheduleDisplay || "N/A"}</div></div>
+      </div>`
+    : "";
 
   const content = `
     <div class="header-banner bg-blue">New Booking Received</div>
@@ -350,11 +365,11 @@ export function getNewStudentNotificationTemplate(studentData, packageData) {
       <h3>Customer Details</h3>
       <div class="detail-row"><div class="detail-label">Name:</div><div class="detail-value">${firstName} ${lastName}</div></div>
       <div class="detail-row"><div class="detail-label">Email:</div><div class="detail-value">${email}</div></div>
-      <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber || 'N/A'}</div></div>
+      <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber || "N/A"}</div></div>
 
       <h3 style="margin-top: 24px;">Booking Details</h3>
       <div class="details-box">
-        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value">${sessionType || 'Course Enrollment'}</div></div>
+        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value">${sessionType || "Course Enrollment"}</div></div>
         <div class="detail-row"><div class="detail-label">Package:</div><div class="detail-value">${packageName}</div></div>
         <div class="detail-row"><div class="detail-label">Price:</div><div class="detail-value">$${packagePrice}</div></div>
       </div>
@@ -362,7 +377,7 @@ export function getNewStudentNotificationTemplate(studentData, packageData) {
       
       <div class="schedule-box">
         <p style="margin-bottom: 8px; font-weight: 600; color: #4338ca;">Class Schedule:</p>
-        <p style="margin: 0; font-size: 14px; color: #1e1b4b;">${teenSession ? 'Student selected the session above. Please confirm their enrollment.' : 'Admins will review this booking and contact the student to finalize the schedule.'}</p>
+        <p style="margin: 0; font-size: 14px; color: #1e1b4b;">${teenSession ? "Student selected the session above. Please confirm their enrollment." : "Admins will review this booking and contact the student to finalize the schedule."}</p>
       </div>
     </div>
 `;
@@ -374,18 +389,23 @@ export function getNewStudentNotificationTemplate(studentData, packageData) {
  * Student Registration Confirmation
  * Sent to the student immediately after registration
  */
-export function getStudentRegistrationConfirmationTemplate(studentData, packageData) {
+export function getStudentRegistrationConfirmationTemplate(
+  studentData,
+  packageData
+) {
   const { firstName, lastName } = studentData;
   const { packageName, packagePrice, sessionType, teenSession } = packageData;
 
-  const teenSessionHtml = teenSession ? `
+  const teenSessionHtml = teenSession
+    ? `
       <h3 style="margin-top: 24px;">Your Course Session</h3>
       <div class="details-box" style="background-color: #eef2ff; border-left: 4px solid #4f46e5;">
-        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value"><strong>${teenSession.type || 'N/A'} Course</strong></div></div>
-        <div class="detail-row"><div class="detail-label">Dates:</div><div class="detail-value">${teenSession.startDate || ''} to ${teenSession.endDate || ''}</div></div>
-        <div class="detail-row"><div class="detail-label">Schedule:</div><div class="detail-value">${teenSession.scheduleDisplay || 'N/A'}</div></div>
+        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value"><strong>${teenSession.type || "N/A"} Course</strong></div></div>
+        <div class="detail-row"><div class="detail-label">Dates:</div><div class="detail-value">${teenSession.startDate || ""} to ${teenSession.endDate || ""}</div></div>
+        <div class="detail-row"><div class="detail-label">Schedule:</div><div class="detail-value">${teenSession.scheduleDisplay || "N/A"}</div></div>
         <div class="detail-row"><div class="detail-label">Total Hours:</div><div class="detail-value">30 hours (state-certified)</div></div>
-      </div>` : '';
+      </div>`
+    : "";
 
   const content = `
     <div class="header-banner bg-green">Booking Confirmed</div>
@@ -395,7 +415,7 @@ export function getStudentRegistrationConfirmationTemplate(studentData, packageD
       
       <h3>Booking Details</h3>
       <div class="details-box">
-        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value">${sessionType || 'Course Enrollment'}</div></div>
+        <div class="detail-row"><div class="detail-label">Type:</div><div class="detail-value">${sessionType || "Course Enrollment"}</div></div>
         <div class="detail-row"><div class="detail-label">Package:</div><div class="detail-value">${packageName}</div></div>
         <div class="detail-row"><div class="detail-label">Price:</div><div class="detail-value">$${packagePrice}</div></div>
       </div>
@@ -403,7 +423,7 @@ export function getStudentRegistrationConfirmationTemplate(studentData, packageD
 
       <div class="schedule-box">
         <p style="margin-bottom: 8px; font-weight: 600; color: #166534;">Next Steps:</p>
-        <p style="margin: 0; font-size: 14px;">${teenSession ? 'Your session is confirmed. Please complete payment to secure your spot. Our team will send you a reminder before your first class.' : 'Our team will contact you shortly with your full schedule and next steps.'}</p>
+        <p style="margin: 0; font-size: 14px;">${teenSession ? "Your session is confirmed. Please complete payment to secure your spot. Our team will send you a reminder before your first class." : "Our team will contact you shortly with your full schedule and next steps."}</p>
       </div>
 
       <p style="margin-top: 24px; font-size: 14px; color: #64748b;">If you have any questions, please reply to this email or call us.</p>
@@ -417,13 +437,16 @@ export function getStudentRegistrationConfirmationTemplate(studentData, packageD
  * Failed Payment - Admin Notification
  * Sent to admin when a student creates account but payment fails
  */
-export function getPaymentFailureNotificationTemplate(studentData, packageData) {
+export function getPaymentFailureNotificationTemplate(
+  studentData,
+  packageData
+) {
   const { firstName, lastName, email, phoneNumber } = studentData;
   const { packageName, packagePrice } = packageData;
-  const timestamp = new Date().toLocaleString('en-US', {
-    timeZone: 'America/Los_Angeles',
-    dateStyle: 'full',
-    timeStyle: 'short'
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    dateStyle: "full",
+    timeStyle: "short",
   });
 
   const content = `
@@ -446,12 +469,16 @@ export function getPaymentFailureNotificationTemplate(studentData, packageData) 
             <td style="padding: 8px 0; color: #57534e; font-weight: 600;">Email:</td>
             <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #16a34a;">${email}</a></td>
           </tr>
-          ${phoneNumber ? `
+          ${
+            phoneNumber
+              ? `
           <tr>
             <td style="padding: 8px 0; color: #57534e; font-weight: 600;">Phone:</td>
             <td style="padding: 8px 0;"><a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a></td>
           </tr>
-          ` : ''}
+          `
+              : ""
+          }
         </table>
       </div>
     </div>
@@ -495,7 +522,7 @@ export function getPaymentFailureNotificationTemplate(studentData, packageData) 
     </div>
 `;
 
-  const preheader = 'Failed payment attempt - follow up needed';
+  const preheader = "Failed payment attempt - follow up needed";
 
   return getBaseTemplate(content, preheader);
 }
@@ -504,7 +531,10 @@ export function getPaymentFailureNotificationTemplate(studentData, packageData) 
  * Test Registration Received — Client Email (Pre-Payment, ~7 min delay)
  * Sent if the client has NOT completed payment after the delay window.
  */
-export function getTestRegistrationReceivedTemplate(studentData, appointmentDetails) {
+export function getTestRegistrationReceivedTemplate(
+  studentData,
+  appointmentDetails
+) {
   const { firstName, lastName } = studentData;
   const { date, time, sessionType, testName } = appointmentDetails;
   const displayName = testName || sessionType;
@@ -538,21 +568,27 @@ export function getTestRegistrationReceivedTemplate(studentData, appointmentDeta
     </div>
   `;
 
-  return getBaseTemplate(content, `We received your ${displayName} registration — payment pending`);
+  return getBaseTemplate(
+    content,
+    `We received your ${displayName} registration — payment pending`
+  );
 }
 
 /**
  * Test Pending Payment — Admin Notification (~7 min delay, no-pay case)
  * Sent to company when a client registered for a test but did NOT complete payment.
  */
-export function getTestPendingPaymentAdminTemplate(studentData, appointmentDetails) {
+export function getTestPendingPaymentAdminTemplate(
+  studentData,
+  appointmentDetails
+) {
   const { firstName, lastName, email, phoneNumber } = studentData;
   const { date, time, sessionType, testName } = appointmentDetails;
   const displayName = testName || sessionType;
-  const timestamp = new Date().toLocaleString('en-US', {
-    timeZone: 'America/Los_Angeles',
-    dateStyle: 'full',
-    timeStyle: 'short'
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    dateStyle: "full",
+    timeStyle: "short",
   });
 
   const content = `
@@ -564,7 +600,7 @@ export function getTestPendingPaymentAdminTemplate(studentData, appointmentDetai
       <div class="details-box">
         <div class="detail-row"><div class="detail-label">Name:</div><div class="detail-value"><strong>${firstName} ${lastName}</strong></div></div>
         <div class="detail-row"><div class="detail-label">Email:</div><div class="detail-value"><a href="mailto:${email}" style="color: #16a34a;">${email}</a></div></div>
-        <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber ? `<a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a>` : 'Not provided'}</div></div>
+        <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber ? `<a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a>` : "Not provided"}</div></div>
       </div>
 
       <h3 style="margin-top: 24px;">Test Details</h3>
@@ -594,13 +630,19 @@ export function getTestPendingPaymentAdminTemplate(studentData, appointmentDetai
     </div>
   `;
 
-  return getBaseTemplate(content, `Follow-up needed: ${firstName} ${lastName} — ${displayName} payment pending`);
+  return getBaseTemplate(
+    content,
+    `Follow-up needed: ${firstName} ${lastName} — ${displayName} payment pending`
+  );
 }
 
 /**
  * Test Booking Confirmed + Paid — Client Email (Immediate, after Clover payment)
  */
-export function getTestBookingConfirmedTemplate(studentData, appointmentDetails) {
+export function getTestBookingConfirmedTemplate(
+  studentData,
+  appointmentDetails
+) {
   const { firstName, lastName } = studentData;
   const { date, time, sessionType, testName, price } = appointmentDetails;
   const displayName = testName || sessionType;
@@ -616,7 +658,7 @@ export function getTestBookingConfirmedTemplate(studentData, appointmentDetails)
         <div class="detail-row"><div class="detail-label">Test:</div><div class="detail-value"><strong>${displayName}</strong></div></div>
         <div class="detail-row"><div class="detail-label">Date:</div><div class="detail-value">${date}</div></div>
         <div class="detail-row"><div class="detail-label">Time:</div><div class="detail-value">${time}</div></div>
-        ${price ? `<div class="detail-row"><div class="detail-label">Price Paid:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${price}</div></div>` : ''}
+        ${price ? `<div class="detail-row"><div class="detail-label">Price Paid:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${price}</div></div>` : ""}
         <div class="detail-row"><div class="detail-label">Status:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">✅ Confirmed &amp; Paid</div></div>
       </div>
 
@@ -638,20 +680,26 @@ export function getTestBookingConfirmedTemplate(studentData, appointmentDetails)
     </div>
   `;
 
-  return getBaseTemplate(content, `${displayName} confirmed for ${date} at ${time}`);
+  return getBaseTemplate(
+    content,
+    `${displayName} confirmed for ${date} at ${time}`
+  );
 }
 
 /**
  * Test Booking Paid — Admin Notification (Immediate, after Clover payment)
  */
-export function getTestBookingPaidAdminTemplate(studentData, appointmentDetails) {
+export function getTestBookingPaidAdminTemplate(
+  studentData,
+  appointmentDetails
+) {
   const { firstName, lastName, email, phoneNumber } = studentData;
   const { date, time, sessionType, testName, price } = appointmentDetails;
   const displayName = testName || sessionType;
-  const timestamp = new Date().toLocaleString('en-US', {
-    timeZone: 'America/Los_Angeles',
-    dateStyle: 'full',
-    timeStyle: 'short'
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    dateStyle: "full",
+    timeStyle: "short",
   });
 
   const content = `
@@ -663,7 +711,7 @@ export function getTestBookingPaidAdminTemplate(studentData, appointmentDetails)
       <div class="details-box">
         <div class="detail-row"><div class="detail-label">Name:</div><div class="detail-value"><strong>${firstName} ${lastName}</strong></div></div>
         <div class="detail-row"><div class="detail-label">Email:</div><div class="detail-value"><a href="mailto:${email}" style="color: #16a34a;">${email}</a></div></div>
-        <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber ? `<a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a>` : 'Not provided'}</div></div>
+        <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber ? `<a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a>` : "Not provided"}</div></div>
       </div>
 
       <h3 style="margin-top: 24px;">Test &amp; Payment Details</h3>
@@ -671,7 +719,7 @@ export function getTestBookingPaidAdminTemplate(studentData, appointmentDetails)
         <div class="detail-row"><div class="detail-label">Test:</div><div class="detail-value"><strong>${displayName}</strong></div></div>
         <div class="detail-row"><div class="detail-label">Date:</div><div class="detail-value">${date}</div></div>
         <div class="detail-row"><div class="detail-label">Time:</div><div class="detail-value">${time}</div></div>
-        ${price ? `<div class="detail-row"><div class="detail-label">Amount Paid:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${price}</div></div>` : ''}
+        ${price ? `<div class="detail-row"><div class="detail-label">Amount Paid:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${price}</div></div>` : ""}
         <div class="detail-row"><div class="detail-label">Payment Status:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">✅ Completed</div></div>
       </div>
 
@@ -685,5 +733,117 @@ export function getTestBookingPaidAdminTemplate(studentData, appointmentDetails)
     </div>
   `;
 
-  return getBaseTemplate(content, `Test booking paid: ${firstName} ${lastName} — ${displayName}`);
+  return getBaseTemplate(
+    content,
+    `Test booking paid: ${firstName} ${lastName} — ${displayName}`
+  );
+}
+
+/**
+ * Payment Received — Admin Notification
+ * Sent to admin when a student completes Clover payment and is redirected back.
+ * Tells admin to verify in Clover and finalize in the admin dashboard.
+ */
+export function getPaymentReceivedAdminTemplate(studentData, packageData) {
+  const { firstName, lastName, email, phoneNumber } = studentData;
+  const { packageName, packagePrice } = packageData;
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    dateStyle: "full",
+    timeStyle: "short",
+  });
+
+  const content = `
+    <div class="header-banner" style="background-color: #a16207; padding: 24px; text-align: center; color: #ffffff; font-weight: bold; font-size: 24px;">💰 Payment Received — Verify in Clover</div>
+    <div class="section">
+      <p style="font-size: 15px; color: #57534e;">A student completed the Clover payment flow and was redirected back to the website as of <strong>${timestamp}</strong>.</p>
+
+      <h3>Student Information</h3>
+      <div class="details-box">
+        <div class="detail-row"><div class="detail-label">Name:</div><div class="detail-value"><strong>${firstName} ${lastName}</strong></div></div>
+        <div class="detail-row"><div class="detail-label">Email:</div><div class="detail-value"><a href="mailto:${email}" style="color: #16a34a;">${email}</a></div></div>
+        <div class="detail-row"><div class="detail-label">Phone:</div><div class="detail-value">${phoneNumber ? `<a href="tel:${phoneNumber}" style="color: #16a34a;">${phoneNumber}</a>` : "Not provided"}</div></div>
+      </div>
+
+      <h3 style="margin-top: 24px;">Package & Payment</h3>
+      <div class="details-box">
+        <div class="detail-row"><div class="detail-label">Package:</div><div class="detail-value"><strong>${packageName || "Unknown"}</strong></div></div>
+        ${packagePrice ? `<div class="detail-row"><div class="detail-label">Amount:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${packagePrice}</div></div>` : ""}
+        <div class="detail-row"><div class="detail-label">Status:</div><div class="detail-value" style="color: #a16207; font-weight: 600;">⏳ Pending Verification</div></div>
+      </div>
+
+      <div style="background-color: #fefce8; border-left: 4px solid #a16207; padding: 16px; border-radius: 4px; margin-top: 16px;">
+        <p style="margin-bottom: 8px; font-weight: 600; color: #92400e;">🔍 Action Required</p>
+        <ol style="margin: 0; padding-left: 20px; line-height: 1.8; font-size: 14px; color: #78350f;">
+          <li><strong>Open your Clover dashboard</strong> and confirm the payment was received</li>
+          <li>Go to the <strong>Admin Portal → Payments tab</strong></li>
+          <li>Find this student and change status to <strong>"Mark Paid ✅"</strong></li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="${BASE_URL}/admin" style="display: inline-block; background-color: #a16207; color: #ffffff; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px;">Open Admin Dashboard →</a>
+      </div>
+
+      <p style="font-size: 13px; color: #78716c; margin-top: 24px; text-align: center;">
+        Automated notification from your booking system.
+      </p>
+    </div>
+  `;
+
+  return getBaseTemplate(
+    content,
+    `Payment received (verify in Clover): ${firstName} ${lastName} — ${packageName}`
+  );
+}
+
+/**
+ * Payment Received — Student Confirmation
+ * Sent to the student after successful Clover payment redirect.
+ * Confirms payment is being processed and tells them what to expect.
+ */
+export function getPaymentReceivedStudentTemplate(studentData, packageData) {
+  const { firstName, lastName } = studentData;
+  const { packageName, packagePrice } = packageData;
+
+  const content = `
+    <div class="header-banner" style="background-color: #16a34a; padding: 24px; text-align: center; color: #ffffff; font-weight: bold; font-size: 24px;">Payment Received ✅</div>
+    <div class="section">
+      <p>Dear ${firstName} ${lastName},</p>
+      <p>Thank you for your payment! We have received your payment for <strong>${packageName || "your selected package"}</strong> at <strong>${SCHOOL_NAME}</strong>.</p>
+
+      <h3>Payment Summary</h3>
+      <div class="details-box">
+        <div class="detail-row"><div class="detail-label">Package:</div><div class="detail-value"><strong>${packageName || "N/A"}</strong></div></div>
+        ${packagePrice ? `<div class="detail-row"><div class="detail-label">Amount:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">$${packagePrice}</div></div>` : ""}
+        <div class="detail-row"><div class="detail-label">Status:</div><div class="detail-value" style="color: #16a34a; font-weight: 600;">✅ Payment Received</div></div>
+      </div>
+
+      <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px; border-radius: 4px; margin-top: 16px;">
+        <p style="margin-bottom: 8px; font-weight: 600; color: #166534;">What Happens Next?</p>
+        <ul style="margin: 0; padding-left: 20px; line-height: 1.8; font-size: 14px; color: #14532d;">
+          <li>Our team will <strong>verify your payment</strong> and finalize your enrollment</li>
+          <li>You will receive a follow-up email or call with your <strong>schedule details</strong></li>
+          <li>You can access your <strong>student dashboard</strong> at any time</li>
+        </ul>
+      </div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="${BASE_URL}/dashboard" style="display: inline-block; background-color: #16a34a; color: #ffffff; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px;">Go to Your Dashboard →</a>
+      </div>
+
+      <p style="margin-top: 20px;">📍 <strong>Location:</strong> ${SCHOOL_ADDRESS}</p>
+      <p>Questions? Call us at <a href="tel:${SCHOOL_PHONE}" style="color: #16a34a;">${SCHOOL_PHONE}</a> or email <a href="mailto:${SCHOOL_EMAIL}" style="color: #16a34a;">${SCHOOL_EMAIL}</a></p>
+
+      <p style="font-size: 14px; color: #64748b; margin-top: 24px;">
+        Best regards,<br>
+        <strong>Team ${SCHOOL_NAME}</strong>
+      </p>
+    </div>
+  `;
+
+  return getBaseTemplate(
+    content,
+    `Payment received for ${packageName} — welcome to ${SCHOOL_NAME}!`
+  );
 }

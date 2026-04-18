@@ -11,7 +11,7 @@ const fileMapping = [
   'src/components/BookingPortal.tsx', 'src/components/EnrollmentModal.tsx',
   'src/components/Footer.tsx', 'src/components/ServiceTabs.tsx',
   'src/contexts/AuthContext.tsx', 'src/hooks/usePackages.ts',
-  'src/app/globals.css', 'src/lib/clover-payment-links.ts'
+  'src/app/globals.css', 'src/lib/clover-payment-links.ts', 'src/app/payment-return/page.tsx'
 ];
 
 const exactReplacements = [

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -77,7 +77,7 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Desktop / Tablet Nav Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* -- Desktop / Tablet Nav -- */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -97,7 +97,7 @@ export default function NavBar() {
               id="nav-logo"
             >
               <img
-                src="/images/logo_green_hat.jpg"
+                src="/images/logo.jpg"
                 alt="DDS"
                 width="40"
                 height="40"
@@ -108,11 +108,11 @@ export default function NavBar() {
               </span>
             </Link>
             <a
-              href="tel:+12068516647"
+              href="tel:+12065519748"
               className="hidden md:flex items-center gap-1 text-amber-200/80 hover:text-white text-xs font-semibold transition-colors"
             >
               <Phone className="w-3 h-3" />
-              (206) 851-6647
+              (206) 551-9748
             </a>
           </div>
 
@@ -213,7 +213,7 @@ export default function NavBar() {
         </div>
       </motion.nav>
 
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Mobile Full-Screen Menu Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* -- Mobile Full-Screen Menu -- */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -295,11 +295,11 @@ export default function NavBar() {
                   </div>
                 )}
                 <a
-                  href="tel:+12068516647"
+                  href="tel:+12065519748"
                   className="mt-4 flex items-center justify-center gap-2 text-white/50 hover:text-white text-sm font-semibold transition-colors py-3"
                 >
                   <Phone className="w-4 h-4" />
-                  (206) 851-6647
+                  (206) 551-9748
                 </a>
               </motion.div>
             </div>

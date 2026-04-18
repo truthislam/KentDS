@@ -1,0 +1,515 @@
+[debug] [2026-04-18T13:14:48.975Z] ----------------------------------------------------------------------
+[debug] [2026-04-18T13:14:48.977Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-04-18T13:14:48.977Z] CLI Version:   15.13.0
+[debug] [2026-04-18T13:14:48.977Z] Platform:      win32
+[debug] [2026-04-18T13:14:48.978Z] Node Version:  v24.12.0
+[debug] [2026-04-18T13:14:48.978Z] Time:          Sat Apr 18 2026 15:14:48 GMT+0200 (Eastern European Standard Time)
+[debug] [2026-04-18T13:14:48.978Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-18T13:14:51.269Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-18T13:14:51.269Z] > authorizing via signed-in user (discountdriving@gmail.com)
+[debug] [2026-04-18T13:14:51.269Z] [iam] checking project kent-discount-driving for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-04-18T13:14:51.270Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:51.270Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:51.271Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions [none]
+[debug] [2026-04-18T13:14:51.271Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions  x-goog-user-project=kent-discount-driving
+[debug] [2026-04-18T13:14:51.271Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-18T13:14:52.160Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions 200
+[debug] [2026-04-18T13:14:52.161Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-18T13:14:52.161Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:52.161Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:52.161Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-18T13:14:52.161Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-18T13:14:53.030Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-18T13:14:53.030Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-18T13:14:53.030Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:53.031Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:53.031Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving [none]
+[debug] [2026-04-18T13:14:53.394Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving 200
+[debug] [2026-04-18T13:14:53.394Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving {"projectId":"kent-discount-driving","projectNumber":"39453582097","displayName":"Kent Discount Driving","name":"projects/kent-discount-driving","resources":{"hostingSite":"kent-discount-driving"},"state":"ACTIVE","etag":"1_99360848-5652-4be4-af06-bf40e01ea767"}
+[debug] [2026-04-18T13:14:55.591Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:55.591Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:55.592Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites pageToken=&pageSize=10
+[debug] [2026-04-18T13:14:56.860Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites 200
+[debug] [2026-04-18T13:14:56.860Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites {"sites":[{"name":"projects/kent-discount-driving/sites/kent-discount-driving","defaultUrl":"https://kent-discount-driving.web.app","appId":"1:39453582097:web:1d69d81c67ff74170662b0","type":"DEFAULT_SITE"}]}
+[debug] [2026-04-18T13:14:56.861Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:56.861Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:14:56.861Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config [none]
+[debug] [2026-04-18T13:14:57.533Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config 200
+[debug] [2026-04-18T13:14:57.534Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config {"projectId":"kent-discount-driving","appId":"1:39453582097:web:1d69d81c67ff74170662b0","storageBucket":"kent-discount-driving.firebasestorage.app","apiKey":"AIzaSyC3RTtDa_nbMpEMDwtxlsmmeLXmEiFkqyE","authDomain":"kent-discount-driving.firebaseapp.com","messagingSenderId":"39453582097","measurementId":"G-N7G383YYC3","projectNumber":"39453582097","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-04-18T13:15:01.793Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:01.794Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:01.794Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving [none]
+[debug] [2026-04-18T13:15:02.598Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving 200
+[debug] [2026-04-18T13:15:02.598Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving {"name":"projects/kent-discount-driving/sites/kent-discount-driving","defaultUrl":"https://kent-discount-driving.web.app","appId":"1:39453582097:web:1d69d81c67ff74170662b0","type":"DEFAULT_SITE"}
+[info] ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\slave\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\slave\OneDrive\Desktop\DDS_Kent_SaaS\package-lock.json
+
+
+[info] ▲ Next.js 16.2.2 (Turbopack)
+
+[info] - Environments: .env.local
+
+
+[info]   Creating an optimized production build ...
+
+[info] ✓ Compiled successfully in 3.4s
+
+[info]   Running TypeScript ...
+
+[info]   Finished TypeScript in 4.2s ...
+
+[info]   Collecting page data using 12 workers ...
+
+[info]   Generating static pages using 12 workers (0/11) ...
+
+[info]   Generating static pages using 12 workers (2/11) 
+
+[info]   Generating static pages using 12 workers (5/11) 
+
+[info]   Generating static pages using 12 workers (8/11) 
+
+[info] ✓ Generating static pages using 12 workers (11/11) in 787ms
+
+[info]   Finalizing page optimization ...
+
+[info] 
+
+[info] Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /admin
+├ ○ /blog
+├ ○ /contact
+├ ○ /dashboard
+├ ○ /icon.png
+├ ○ /payment-return
+└ ○ /services
+
+
+[info] 
+○  (Static)  prerendered as static content
+
+
+[debug] [2026-04-18T13:15:15.017Z] [web frameworks] effective firebase.json:  {
+  "hosting": [
+    {
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-central1"
+      },
+      "rewrites": [
+        {
+          "source": "/public/pages/payment-return.html",
+          "destination": "/payment-return"
+        },
+        {
+          "source": "/public/pages/services.html",
+          "destination": "/dashboard"
+        }
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "functions/**"
+      ],
+      "site": "kent-discount-driving",
+      "redirects": [],
+      "headers": [
+        {
+          "source": "/about",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/about/layout,_N_T_/about/page,_N_T_/about"
+            }
+          ]
+        },
+        {
+          "source": "/_global-error",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_global-error/layout,_N_T_/_global-error/page,_N_T_/_global-error"
+            }
+          ]
+        },
+        {
+          "source": "/_not-found",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_not-found/layout,_N_T_/_not-found/page,_N_T_/_not-found"
+            }
+          ]
+        },
+        {
+          "source": "/admin",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/page,_N_T_/admin"
+            }
+          ]
+        },
+        {
+          "source": "/blog",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/blog/layout,_N_T_/blog/page,_N_T_/blog"
+            }
+          ]
+        },
+        {
+          "source": "/contact",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/contact/layout,_N_T_/contact/page,_N_T_/contact"
+            }
+          ]
+        },
+        {
+          "source": "/dashboard",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/dashboard/layout,_N_T_/dashboard/page,_N_T_/dashboard"
+            }
+          ]
+        },
+        {
+          "source": "/icon.png",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "image/png"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/icon.png/layout,_N_T_/icon.png/route,_N_T_/icon.png"
+            }
+          ]
+        },
+        {
+          "source": "/payment-return",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/payment-return/layout,_N_T_/payment-return/page,_N_T_/payment-return"
+            }
+          ]
+        },
+        {
+          "source": "/services",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/services/layout,_N_T_/services/page,_N_T_/services"
+            }
+          ]
+        },
+        {
+          "source": "**/*.[jt]s",
+          "headers": [
+            {
+              "key": "Set-Cookie",
+              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoia2VudC1kaXNjb3VudC1kcml2aW5nIiwiYXBwSWQiOiIxOjM5NDUzNTgyMDk3OndlYjoxZDY5ZDgxYzY3ZmY3NDE3MDY2MmIwIiwic3RvcmFnZUJ1Y2tldCI6ImtlbnQtZGlzY291bnQtZHJpdmluZy5maXJlYmFzZXN0b3JhZ2UuYXBwIiwiYXBpS2V5IjoiQUl6YVN5QzNSVHREYV9uYk1wRU1Ed3R4bHNtbWVMWG1FaUZrcXlFIiwiYXV0aERvbWFpbiI6ImtlbnQtZGlzY291bnQtZHJpdmluZy5maXJlYmFzZWFwcC5jb20iLCJtZXNzYWdpbmdTZW5kZXJJZCI6IjM5NDUzNTgyMDk3IiwibWVhc3VyZW1lbnRJZCI6IkctTjdHMzgzWVlDMyIsInByb2plY3ROdW1iZXIiOiIzOTQ1MzU4MjA5NyIsInZlcnNpb24iOiIyIn19; SameSite=Strict; Expires=2028-03-12T23:55:15.017Z; Path=/;"
+            }
+          ]
+        }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": ".firebase\\kent-discount-driving\\hosting",
+      "webFramework": "next"
+    }
+  ],
+  "functions": [
+    {
+      "runtime": "nodejs22",
+      "source": "functions",
+      "codebase": "default"
+    }
+  ]
+}
+[info] 
+[info] === Deploying to 'kent-discount-driving'...
+[info] 
+[info] i  deploying firestore, functions, hosting 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-04-18T13:15:15.021Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:15.021Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:15.021Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/kent-discount-driving/databases/(default) [none]
+[debug] [2026-04-18T13:15:15.953Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/kent-discount-driving/databases/(default) 200
+[debug] [2026-04-18T13:15:15.953Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/kent-discount-driving/databases/(default) {"name":"projects/kent-discount-driving/databases/(default)","uid":"dfbcac52-04cd-402d-954d-f9099c311364","createTime":"2026-01-21T03:00:31.835998Z","updateTime":"2026-01-21T03:00:31.835998Z","locationId":"us-central1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-04-18T12:15:16.173205Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IMfAgdq995MDMKfw5pbzvpMD"}
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-04-18T13:15:15.954Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:15.954Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:15.954Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/kent-discount-driving:test [none]
+[debug] [2026-04-18T13:15:15.954Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/kent-discount-driving:test [omitted]
+[debug] [2026-04-18T13:15:16.412Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/kent-discount-driving:test 200
+[debug] [2026-04-18T13:15:16.412Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/kent-discount-driving:test {}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-04-18T13:15:16.413Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:16.413Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:16.413Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving [none]
+[debug] [2026-04-18T13:15:17.249Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving 200
+[debug] [2026-04-18T13:15:17.250Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving {"projectNumber":"39453582097","projectId":"kent-discount-driving","lifecycleState":"ACTIVE","name":"Kent Discount Driving","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-01-21T02:52:59.229043Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-18T13:15:17.251Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:17.251Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:17.251Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving/adminSdkConfig [none]
+[debug] [2026-04-18T13:15:17.622Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving/adminSdkConfig 200
+[debug] [2026-04-18T13:15:17.622Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving/adminSdkConfig {"projectId":"kent-discount-driving","storageBucket":"kent-discount-driving.firebasestorage.app"}
+[debug] [2026-04-18T13:15:17.622Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:17.622Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:15:17.622Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/kent-discount-driving/configs [none]
+[debug] [2026-04-18T13:15:18.166Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/kent-discount-driving/configs 200
+[debug] [2026-04-18T13:15:18.166Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/kent-discount-driving/configs {}
+[debug] [2026-04-18T13:15:18.166Z] Validating nodejs source
+[warn] !  functions: Couldn't find firebase-functions package in your source code. Have you run 'npm install'? 
+[debug] [2026-04-18T13:15:18.167Z] getFunctionsSDKVersion encountered error: Cannot find module 'firebase-functions'
+Require stack:
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorShared.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\prepare.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\cli.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js {"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\node\\versioning.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\node\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\runtimes\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\functions\\prepare.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\emulator\\functionsEmulatorShared.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\frameworks\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\hosting\\prepare.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\hosting\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\deploy\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\commands\\deploy.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\commands\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\index.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\bin\\cli.js","C:\\Users\\slave\\AppData\\Roaming\\npm\\node_modules\\firebase-tools\\lib\\bin\\firebase.js"]}
+[debug] [2026-04-18T13:15:18.168Z] checkFunctionsSDKVersion encountered error: Invalid Version:  {}
+[debug] [2026-04-18T13:15:18.169Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for DDS React SaaS",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2026-04-18T13:15:18.169Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-18T13:15:18.169Z] Could not parse firebase-functions version '' into semver.
+[debug] [2026-04-18T13:15:18.170Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-18T13:15:18.362Z] Error: Cannot find module 'firebase-functions'
+Require stack:
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorShared.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\prepare.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\cli.js
+- C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1421:15)
+    at C:\Users\slave\OneDrive\Desktop\DDS_Kent_SaaS\node_modules\next\dist\server\require-hook.js:68:36
+    at require.resolve (node:internal/modules/helpers:163:19)
+    at Delegate.findFunctionsBinary (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:101:33)
+    at Delegate.spawnFunctionsProcess (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:131:30)
+    at Delegate.serveAdmin (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:152:35)
+    at Delegate.discoverBuild (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:192:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async loadCodebases (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:338:33)
+    at async prepare (C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:70:24)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-04-18T13:19:29.275Z] ----------------------------------------------------------------------
+[debug] [2026-04-18T13:19:29.277Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\slave\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-04-18T13:19:29.277Z] CLI Version:   15.13.0
+[debug] [2026-04-18T13:19:29.277Z] Platform:      win32
+[debug] [2026-04-18T13:19:29.277Z] Node Version:  v24.12.0
+[debug] [2026-04-18T13:19:29.277Z] Time:          Sat Apr 18 2026 15:19:29 GMT+0200 (Eastern European Standard Time)
+[debug] [2026-04-18T13:19:29.278Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-18T13:19:30.570Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-18T13:19:30.570Z] > authorizing via signed-in user (discountdriving@gmail.com)
+[debug] [2026-04-18T13:19:30.571Z] [iam] checking project kent-discount-driving for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-04-18T13:19:30.572Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:30.572Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:30.572Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions [none]
+[debug] [2026-04-18T13:19:30.572Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions  x-goog-user-project=kent-discount-driving
+[debug] [2026-04-18T13:19:30.573Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-18T13:19:31.398Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions 200
+[debug] [2026-04-18T13:19:31.398Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kent-discount-driving:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-18T13:19:31.398Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:31.398Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:31.398Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-18T13:19:31.398Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-18T13:19:32.197Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-18T13:19:32.197Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/kent-discount-driving/serviceAccounts/kent-discount-driving@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-18T13:19:32.197Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:32.197Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:32.197Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving [none]
+[debug] [2026-04-18T13:19:32.602Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving 200
+[debug] [2026-04-18T13:19:32.602Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kent-discount-driving {"projectId":"kent-discount-driving","projectNumber":"39453582097","displayName":"Kent Discount Driving","name":"projects/kent-discount-driving","resources":{"hostingSite":"kent-discount-driving"},"state":"ACTIVE","etag":"1_99360848-5652-4be4-af06-bf40e01ea767"}
+[debug] [2026-04-18T13:19:34.363Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:34.363Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:34.363Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites pageToken=&pageSize=10
+[debug] [2026-04-18T13:19:35.450Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites 200
+[debug] [2026-04-18T13:19:35.450Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites {"sites":[{"name":"projects/kent-discount-driving/sites/kent-discount-driving","defaultUrl":"https://kent-discount-driving.web.app","appId":"1:39453582097:web:1d69d81c67ff74170662b0","type":"DEFAULT_SITE"}]}
+[debug] [2026-04-18T13:19:35.450Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:35.450Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:35.451Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config [none]
+[debug] [2026-04-18T13:19:36.126Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config 200
+[debug] [2026-04-18T13:19:36.126Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:39453582097:web:1d69d81c67ff74170662b0/config {"projectId":"kent-discount-driving","appId":"1:39453582097:web:1d69d81c67ff74170662b0","storageBucket":"kent-discount-driving.firebasestorage.app","apiKey":"AIzaSyC3RTtDa_nbMpEMDwtxlsmmeLXmEiFkqyE","authDomain":"kent-discount-driving.firebaseapp.com","messagingSenderId":"39453582097","measurementId":"G-N7G383YYC3","projectNumber":"39453582097","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-04-18T13:19:40.831Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:40.831Z] Checked if tokens are valid: true, expires at: 1776521673518
+[debug] [2026-04-18T13:19:40.831Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving [none]
+[debug] [2026-04-18T13:19:41.686Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving 200
+[debug] [2026-04-18T13:19:41.686Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kent-discount-driving/sites/kent-discount-driving {"name":"projects/kent-discount-driving/sites/kent-discount-driving","defaultUrl":"https://kent-discount-driving.web.app","appId":"1:39453582097:web:1d69d81c67ff74170662b0","type":"DEFAULT_SITE"}
+[info] ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\slave\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\slave\OneDrive\Desktop\DDS_Kent_SaaS\package-lock.json
+
+
+[info] ▲ Next.js 16.2.2 (Turbopack)
+
+[info] - Environments: .env.local
+
+
+[info]   Creating an optimized production build ...
+

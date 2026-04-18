@@ -26,10 +26,10 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const categoryImages: Record<string, string> = {
-  "Adult-Packages": "/images/adult package img.webp",
-  "Teen-Packages": "/images/teen_driver_fixed.webp",
-  "Knowledge-Test-Options": "/images/knowledge test img.webp",
-  "Driving-Test-Options": "/images/smiling_driving_test.webp",
+  "Adult-Packages": "/images/adult-package.jpg",
+  "Teen-Packages": "/images/teen-package.jpg",
+  "Knowledge-Test-Options": "/images/knowledge-test.jpg",
+  "Driving-Test-Options": "/images/driving-test.jpg",
 };
 
 export default function ServiceTabs() {
@@ -168,7 +168,7 @@ export default function ServiceTabs() {
                           fill
                           className="object-cover object-[center_35%]"
                           sizes="(max-width: 768px) 100vw, 1024px"
-                          quality={80}
+                          quality={100}
                           priority
                         />
                       </div>

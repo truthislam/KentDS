@@ -1,36 +1,35 @@
-// TODO: Replace with Kent Clover payment links
 // Clover Hosted Payment Links
 // Maps package IDs (or exact names) to their respective Clover payment URLs
 
 export const CLOVER_PAYMENT_LINKS: Record<string, string> = {
     // Adult Packages
-    'Adult-Refresher': 'https://link.clover.com/urlshortener/hskHC4',
-    'Adult-Basic': 'https://link.clover.com/urlshortener/R5KgND',
-    'Adult-Intermediate': 'https://link.clover.com/urlshortener/52n259',
-    'Adult-Advanced': 'https://link.clover.com/urlshortener/7MBVgS',
-    'First-Time-Driver': 'https://link.clover.com/urlshortener/yZxnWG',
-    'Evaluation': 'https://link.clover.com/urlshortener/vJ8MkF',
+    'Adult-Refresher': 'https://link.clover.com/urlshortener/VKj3sX',
+    'Adult-Basic': 'https://link.clover.com/urlshortener/mzdq7w',
+    'Adult-Intermediate': 'https://link.clover.com/urlshortener/7QXD4q',
+    'Adult-Advanced': 'https://link.clover.com/urlshortener/TX4wg3', // Mapped from "Standard Package"
+    'First-Time-Driver': 'https://link.clover.com/urlshortener/YrWV65',
+    'Evaluation': 'https://link.clover.com/urlshortener/VQ5PWz',
 
     // Teen Packages
-    'Teen-Basic': 'https://link.clover.com/urlshortener/PPKmKB',
-    'Teen-Standard': 'https://link.clover.com/urlshortener/6QnDkc',
-    'Teen-Premium': 'https://link.clover.com/urlshortener/Xh9nKn',
-    'Teen-Advanced': 'https://link.clover.com/urlshortener/Gh3TR3',
+    'Teen-Basic': 'https://link.clover.com/urlshortener/XtxH3h',
+    'Teen-Standard': 'https://link.clover.com/urlshortener/mM3gmL', // Mapped from "Essential Package"
+    'Teen-Premium': 'https://link.clover.com/urlshortener/L7SFQj',
+    'Teen-Advanced': 'https://link.clover.com/urlshortener/SQZ8Gp',
 
     // Knowledge Tests
-    'KnowledgeTest-1Attempt': 'https://link.clover.com/urlshortener/SCw5BB',
-    'KnowledgeTest-2Attempts': 'https://link.clover.com/urlshortener/vTfGwX',
+    'KnowledgeTest-1Attempt': 'https://link.clover.com/urlshortener/TWvpp3',
+    'KnowledgeTest-2Attempts': 'https://link.clover.com/urlshortener/5znzbV',
 
     // Driving Tests
-    'DrivingTest-SchoolCar': 'https://link.clover.com/urlshortener/vM7QKF',
-    'DrivingTest-PersonalCar': 'https://link.clover.com/urlshortener/dTyN9X',
-    'DrivingTest-Plus30m': 'https://link.clover.com/urlshortener/mS2m27',
-    'DrivingTest-Plus1h': 'https://link.clover.com/urlshortener/5qK6qz',
+    'DrivingTest-SchoolCar': 'https://link.clover.com/urlshortener/hsxtVJ',
+    'DrivingTest-PersonalCar': 'https://link.clover.com/urlshortener/4J4knw',
+    'DrivingTest-Plus30m': 'https://link.clover.com/urlshortener/6dRYz6',
+    'DrivingTest-Plus1h': 'https://link.clover.com/urlshortener/TLpzyW',
 
     // Bundle Packages
-    'KnowledgeDriving-Bundle': 'https://link.clover.com/urlshortener/cDFLn6',
-    'BothTests-Plus30m': 'https://link.clover.com/urlshortener/QzS8sH',
-    'BothTests-Plus1h': 'https://link.clover.com/urlshortener/vzrW6J',
+    'KnowledgeDriving-Bundle': 'https://link.clover.com/urlshortener/LcSqdC',
+    'BothTests-Plus30m': 'https://link.clover.com/urlshortener/TfrJfb',
+    'BothTests-Plus1h': 'https://link.clover.com/urlshortener/2JZzn5',
 };
 
 /**

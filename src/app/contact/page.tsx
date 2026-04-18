@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -10,13 +10,13 @@ const contactInfo = [
   {
     Icon: MapPin,
     label: "Office Location",
-    value: "8816 Renton Ave S,\nKent, WA 98118",
+    value: "23231 Pacific Hwy S,\nKent, WA 98032",
   },
   {
     Icon: Phone,
     label: "Phone Number",
-    value: "(206) 851-6647",
-    href: "tel:+12068516647",
+    value: "(206) 551-9748",
+    href: "tel:+12065519748",
   },
   {
     Icon: Mail,
@@ -27,7 +27,7 @@ const contactInfo = [
   {
     Icon: Clock,
     label: "Business Hours",
-    value: "Mon â€“ Sun: 9:00 AM â€“ 8:00 PM",
+    value: "Mon - Sun: 9:00 AM - 8:00 PM",
   },
 ];
 
@@ -146,14 +146,14 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Discount Driving School Seattle Location"
+                  title="Kent Discount Driving School Location"
                 />
                 {/* Map legend */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-md p-3 rounded-xl border border-white/50 shadow-lg flex items-center pointer-events-none">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-xs font-bold text-forest-700 tracking-tight">
-                      Open Now â€¢ Walk-ins Welcome
+                      Open Now • Walk-ins Welcome
                     </span>
                   </div>
                 </div>
@@ -319,7 +319,7 @@ export default function ContactPage() {
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+12068516647"
+          href="tel:+12065519748"
           className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all active:scale-95"
           title="Call Us"
         >

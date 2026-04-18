@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -26,14 +26,14 @@ const locations = [
     name: "Kent",
     address: "23231 Pacific Hwy S",
     city: "Kent, WA 98032",
-    phone: "(206) 851-6647",
+    phone: "(206) 551-9748",
     tel: "+12065519748",
   },
   {
     name: "Seattle",
     address: "8816 Renton Ave S",
     city: "Kent, WA 98118",
-    phone: "(206) 851-6647",
+    phone: "(206) 551-9748",
     tel: "+12065519748",
   },
 ];
@@ -92,7 +92,7 @@ export default function Footer() {
               State-approved, insured, and committed to your safety on the road.
             </p>
 
-            {/* Social Icons â€” only show icons that have a URL configured */}
+            {/* Social Icons - only show icons that have a URL configured */}
             {hasAnySocial && (
               <div className="flex gap-3">
                 {hasFacebook && (

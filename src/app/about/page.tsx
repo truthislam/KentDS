@@ -17,7 +17,7 @@ import PageHero from "@/components/PageHero";
 const stats = [
   { value: "15+", label: "Years Experience", border: "border-gold-500" },
   { value: "100%", label: "State Certified", border: "border-blue-600" },
-  { value: "500+", label: "5-Star Reviews", border: "border-emerald-500" },
+  { value: "100+", label: "5-Star Reviews", border: "border-emerald-500" },
   { value: "4.9★", label: "Google Rating", border: "border-gold-400" },
 ];
 
@@ -30,7 +30,7 @@ const whyUs = [
     <>
       Join hundreds of satisfied students who have successfully earned their licenses.{" "}
       <a 
-        href="https://www.google.com/search?sca_esv=ef6db0e9fcb54fe8&sxsrf=ANbL-n64NjnLmcwo_SOAZsp--wIprluEXw:1775485896574&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOeSGx_M4mvMMmSUVMlg6pip7XDLzBqT0O-0oy_Bv1J7glamVXP-F91RymK_xqPw_7Nt4pVKot-dZApywaAiJr9bTeSbZxZ2gAHxEnR3mt8e20TMvtw%3D%3D&q=Discount+Driving+School+Reviews&sa=X&ved=2ahUKEwjF3KyxuNmTAxXQVqQEHTivBAgQ0bkNegQIKRAH&biw=1377&bih=636&dpr=1.39"
+        href="https://www.google.com/maps/place/Kent+Discount+Driving+School/@47.387869,-122.3323323,3262m/data=!3m1!1e3!4m12!1m2!2m1!1skent+driving+school+kent+washington!3m8!1s0x54905beb9e038b7f:0xed5a861f06500aa!8m2!3d47.393019!4d-122.2968389!9m1!1b1!15sCiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvblooIiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvbpIBDmRyaXZpbmdfc2Nob29s4AEA!16s%2Fg%2F11mcc_vg_w?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
         target="_blank" 
         rel="noopener noreferrer" 
         className="text-blue-600 hover:text-blue-700 font-bold hover:underline"
@@ -43,12 +43,12 @@ const whyUs = [
 ];
 
 const reviews = [
-  { initials: "AS", name: "Aritra Shom", text: "\"The instructors were patient, professional, and explained everything clearly, which really helped boost my confidence behind the wheel.\"" },
-  { initials: "RA", name: "Rolando Acosta Zamora", text: "\"As someone in my mid-40s with zero driving experience, I never imagined I'd pass both my tests on the first try! Huge shoutout to Mohammed.\"" },
-  { initials: "MB", name: "Molly Brueger", text: "\"As an adult driver I was nervous, but every instructor was super patient and kind. Thanks to them, I was able to become a more confident driver and pass my test!\"" },
-  { initials: "FA", name: "Fowziya Abukar", text: "\"Loved my experience at this driving school, they help with any confusion you have about the course. My driving lesson with the instructors was great as well.\"" },
-  { initials: "HG", name: "Helen Guante", text: "\"Professional instructors, extremely thorough and they take extra time to explain details. I recommend this school to teens & adults.\"" },
-  { initials: "FJ", name: "Fatima Jeylani", text: "\"I had a great experience. The staff were very nice and treated us well. I highly recommend this place for all your permit and license needs!\"" },
+  { initials: "MW", name: "Marcus Washington", text: '"Highly recommend Kent Discount Driving School! The instructors were very patient with me. I passed my road test on the first try with a high score. They made learning how to drive a breeze."' },
+  { initials: "AK", name: "Amira Khan", text: '"I had a fantastic experience here. As an adult learner, I was really nervous, but they took the time to explain all the rules of the road. Their online scheduling system is super convenient."' },
+  { initials: "JL", name: "Jason Lee", text: '"The best driving school in the Kent area. They really prepare you for real-world driving, not just how to pass the test. The cars are clean and the staff is extremely professional."' },
+  { initials: "SG", name: "Sarah Gutierrez", text: '"My teen daughter took her lessons here and we couldn\'t be happier. The instructors are very thorough and prioritize safety above everything else. Great communication throughout the course."' },
+  { initials: "DB", name: "David Brooks", text: '"Very affordable packages and excellent service. I was able to get my license quickly thanks to their flexible scheduling. Highly recommend them if you want to learn driving the right way."' },
+  { initials: "NP", name: "Nadia Petrov", text: '"Thank you Kent Discount Driving School! They helped me overcome my fear of driving on the highway. The instructors are incredibly supportive and genuinely care about their students\' success."' },
 ];
 
 export default function AboutPage() {
@@ -112,7 +112,7 @@ export default function AboutPage() {
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl relative z-10 aspect-[4/3] w-full bg-stone-100">
               <Image
-                src="/images/about_section.webp"
+                src="/images/instructor.jpg"
                 alt="Friendly Discount Driving School instructor standing in testing lot"
                 fill
                 className="object-cover object-[center_35%] group-hover:scale-[1.03] transition-transform duration-700 ease-out"
@@ -166,7 +166,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-base text-stone-600 max-w-2xl mx-auto">
               Don&apos;t just take our word for it — listen to the students who
-              have transformed their lives through our Seattle driving programs.
+              have transformed their lives through our Kent driving programs.
             </p>
             <div className="flex justify-center items-center gap-2 mt-6">
               <div className="flex text-gold-500">
@@ -213,13 +213,13 @@ export default function AboutPage() {
 
           <div className="mt-16 text-center">
             <a
-              href="https://www.google.com/search?sca_esv=ef6db0e9fcb54fe8&sxsrf=ANbL-n64NjnLmcwo_SOAZsp--wIprluEXw:1775485896574&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOeSGx_M4mvMMmSUVMlg6pip7XDLzBqT0O-0oy_Bv1J7glamVXP-F91RymK_xqPw_7Nt4pVKot-dZApywaAiJr9bTeSbZxZ2gAHxEnR3mt8e20TMvtw%3D%3D&q=Discount+Driving+School+Reviews&sa=X&ved=2ahUKEwjF3KyxuNmTAxXQVqQEHTivBAgQ0bkNegQIKRAH&biw=1377&bih=636&dpr=1.39"
+              href="https://www.google.com/maps/place/Kent+Discount+Driving+School/@47.387869,-122.3323323,3262m/data=!3m1!1e3!4m12!1m2!2m1!1skent+driving+school+kent+washington!3m8!1s0x54905beb9e038b7f:0xed5a861f06500aa!8m2!3d47.393019!4d-122.2968389!9m1!1b1!15sCiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvblooIiZrZW50IGRyaXZpbmcgc2Nob29sIHNlYXR0bGUgd2FzaGluZ3RvbpIBDmRyaXZpbmdfc2Nob29s4AEA!16s%2Fg%2F11mcc_vg_w?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-forest-700 text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-forest-800 transition-all"
               id="about-reviews-cta"
             >
-              Read All 500+ Google Reviews
+              Read All 100+ Google Reviews
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
